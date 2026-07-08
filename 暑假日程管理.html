@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>我的暑假大计划 🌟</title>
+
+<!-- PWA: Manifest -->
+<link rel="manifest" href="./manifest.json">
+
+<!-- PWA: Theme color -->
+<meta name="theme-color" content="#1D4ED8">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- iOS PWA 支持 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="暑假计划">
+<link rel="apple-touch-icon" href="./icon-192.png">
+
+<!-- Windows/Android -->
+<meta name="msapplication-TileColor" content="#1D4ED8">
+<meta name="msapplication-TileImage" content="/icon-192.png">
+
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #3B82F6;
+    --primary-dark: #1D4ED8;
+    --primary-light: #DBEAFE;
+    --primary-soft: #EFF6FF;
+    --secondary: #06B6D4;
+    --accent: #F59E0B;
+    --green: #10B981;
+    --green-light: #D1FAE5;
+    --orange: #F97316;
+    --purple: #8B5CF6;
+    --pink: #EC4899;
+    --blue-mid: #60A5FA;
+    --bg: #F0F6FF;
+    --bg2: #E8F0FE;
+    --card: #FFFFFF;
+    --text: #1E3A5F;
+    --text-mid: #4B6A8F;
+    --text-light: #94A3B8;
+    --border: #BFDBFE;
+    --shadow: 0 4px 20px rgba(59,130,246,0.08);
+    --shadow-hover: 0 12px 36px rgba(59,130,246,0.15);
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', 'ZCOOL KuaiLe', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ========== SUBTLE BG PATTERN ========== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(59,130,246,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 85% 75%, rgba(6,182,212,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ========== LAYOUT ========== */
+  .app { position: relative; z-index: 1; }
+
+  /* ========== HEADER ========== */
+  header {
+    background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #0EA5E9 100%);
+    padding: 18px 32px;
+    box-shadow: 0 4px 24px rgba(29,78,216,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  /* cloud deco */
+  header::after {
+    content: '☁️  ☁️     ☁️';
+    position: absolute;
+    right: 32px; bottom: -2px;
+    font-size: 18px;
+    opacity: 0.18;
+    letter-spacing: 8px;
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-icon {
+    font-size: 36px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 14px;
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    animation: float-icon 3s ease-in-out infinite;
+  }
+  @keyframes float-icon { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+  h1 {
+    font-family: 'ZCOOL KuaiLe', sans-serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    color: white;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .header-subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+  .header-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .stat-badge {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 14px;
+    padding: 8px 16px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .stat-badge:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
+  .stat-badge .num { font-size: 18px; font-weight: 900; }
+
+  /* ========== MAIN CONTENT ========== */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; } }
+
+  /* ========== SIDEBAR ========== */
+  .sidebar { display: flex; flex-direction: column; gap: 18px; }
+
+  /* ========== CARDS ========== */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    border: 1.5px solid rgba(191,219,254,0.6);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .card-title {
+    font-family: 'ZCOOL KuaiLe', sans-serif;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title-icon {
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    background: var(--primary-light);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+
+  /* ========== DATE NAV ========== */
+  .date-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .date-nav-btn {
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--border);
+    background: var(--primary-soft);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.18s;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--primary);
+  }
+  .date-nav-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: scale(1.08); }
+  .date-display {
+    flex: 1;
+    text-align: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .date-display .weekday {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  /* ========== DATE GRID ========== */
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+    margin-bottom: 2px;
+  }
+  .date-grid-header { font-size: 11px; text-align: center; color: var(--text-light); font-weight: 700; padding: 4px 0; }
+  .date-cell {
+    aspect-ratio: 1;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--text-mid);
+    transition: all 0.15s;
+    position: relative;
+  }
+  .date-cell:hover { background: var(--primary-light); color: var(--primary); transform: scale(1.1); }
+  .date-cell.today { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(59,130,246,0.4); border-radius: 10px; }
+  .date-cell.selected { background: var(--accent); color: white; box-shadow: 0 3px 10px rgba(245,158,11,0.35); }
+  .date-cell.today.selected { background: var(--primary); }
+  .date-cell.has-tasks::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    width: 4px; height: 4px;
+    background: var(--secondary);
+    border-radius: 50%;
+  }
+  .date-cell.completed-day::after { background: var(--green); }
+  .date-cell.other-month { opacity: 0.28; }
+
+  /* ========== REWARDS SECTION ========== */
+  .rewards-card {
+    border: 1.5px solid rgba(139,92,246,0.2);
+    background: linear-gradient(145deg, #FAFBFF 0%, #F5F0FF 100%);
+  }
+  .rewards-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .points-display {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #7C3AED, #A78BFA);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+  }
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+  }
+  .badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 8px 4px;
+    border-radius: 12px;
+    background: white;
+    border: 1.5px solid #EDE9FE;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .badge-item:hover { transform: scale(1.08); box-shadow: 0 4px 12px rgba(139,92,246,0.15); }
+  .badge-icon { font-size: 24px; }
+  .badge-name { font-size: 9px; font-weight: 700; color: var(--text-light); text-align: center; line-height: 1.2; }
+  .badge-item.locked { opacity: 0.3; filter: grayscale(0.7); }
+  .badge-item.unlocked { border-color: #C4B5FD; background: #FAF5FF; }
+  .badge-item.unlocked .badge-icon { animation: pop 0.4s ease; filter: drop-shadow(0 2px 5px rgba(139,92,246,0.3)); }
+  @keyframes pop { 0%{transform:scale(0)} 60%{transform:scale(1.2)} 100%{transform:scale(1)} }
+
+  /* ========== STREAK ========== */
+  .streak-bar {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #1D4ED8, #3B82F6);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+  }
+  .streak-icon { font-size: 26px; }
+  .streak-count { font-size: 24px; font-weight: 900; }
+  .streak-text { font-size: 12px; font-weight: 700; opacity: 0.85; line-height: 1.3; }
+
+  /* ========== PROGRESS RING ========== */
+  .progress-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .progress-ring-wrap { position: relative; width: 110px; height: 110px; }
+  .progress-ring-wrap svg { transform: rotate(-90deg); }
+  .progress-ring-circle { transition: stroke-dashoffset 0.6s cubic-bezier(0.4,0,0.2,1); }
+  .progress-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .progress-pct { font-size: 26px; font-weight: 900; color: var(--primary); }
+  .progress-label { font-size: 11px; color: var(--text-light); font-weight: 700; }
+
+  /* ========== MAIN PANEL ========== */
+  .main-panel { display: flex; flex-direction: column; gap: 18px; }
+
+  /* ========== TASK TOOLBAR ========== */
+  .schedule-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .add-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+    font-family: 'Nunito', sans-serif;
+  }
+  .add-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,0.45); }
+  .add-btn:active { transform: scale(0.97); }
+
+  .tasks-container { display: flex; flex-direction: column; gap: 8px; }
+
+  /* ========== TASK ITEMS ========== */
+  .task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: 0 1px 8px rgba(59,130,246,0.06);
+    border: 1.5px solid var(--border);
+    transition: all 0.22s;
+    animation: slideIn 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes slideIn { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+  .task-item:hover { border-color: var(--primary); box-shadow: 0 4px 18px rgba(59,130,246,0.14); transform: translateX(2px); }
+  .task-item.done {
+    background: var(--green-light);
+    border-color: rgba(16,185,129,0.25);
+  }
+  .task-item.done .task-name { text-decoration: line-through; color: var(--text-light); }
+  .task-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 14px 0 0 14px;
+    background: var(--category-color, #CBD5E1);
+  }
+
+  .task-checkbox {
+    width: 26px; height: 26px;
+    border: 2.5px solid var(--border);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.18s;
+    flex-shrink: 0;
+    background: white;
+    font-size: 13px;
+  }
+  .task-checkbox:hover { border-color: var(--green); background: var(--green-light); transform: scale(1.08); }
+  .task-item.done .task-checkbox {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+  }
+
+  .task-info { flex: 1; min-width: 0; }
+  .task-time {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 1px;
+  }
+  .task-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .task-cat-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: var(--category-color, #CBD5E1);
+    color: white;
+    white-space: nowrap;
+    opacity: 0.9;
+  }
+  .task-points {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--purple);
+    white-space: nowrap;
+    background: #F5F0FF;
+    padding: 3px 8px;
+    border-radius: 8px;
+  }
+  .task-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.18s;
+  }
+  .task-item:hover .task-actions { opacity: 1; }
+  .task-action-btn {
+    width: 28px; height: 28px;
+    border: none;
+    background: var(--bg2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.18s, transform 0.15s;
+  }
+  .task-action-btn:hover { background: #FEE2E2; transform: scale(1.1); }
+  .task-action-btn.edit:hover { background: var(--primary-light); }
+
+  /* ========== EMPTY STATE ========== */
+  .empty-state {
+    text-align: center;
+    padding: 44px 24px;
+    color: var(--text-light);
+  }
+  .empty-icon {
+    font-size: 60px;
+    margin-bottom: 14px;
+    display: block;
+    animation: sway 3s ease-in-out infinite;
+  }
+  @keyframes sway { 0%,100%{transform:rotate(-4deg)} 50%{transform:rotate(4deg)} }
+  .empty-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 18px; color: var(--text-mid); margin-bottom: 6px; }
+  .empty-sub { font-size: 13px; color: var(--text-light); }
+
+  /* ========== TIMELINE ========== */
+  .time-timeline {
+    position: relative;
+    padding-left: 60px;
+    margin-top: 8px;
+  }
+  .timeline-line {
+    position: absolute;
+    left: 30px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary), #A78BFA);
+    border-radius: 2px;
+    opacity: 0.4;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 10px;
+    animation: slideIn 0.3s ease;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: -38px; top: 14px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--category-color, #94A3B8);
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    z-index: 1;
+  }
+  .timeline-time {
+    position: absolute;
+    left: -60px; top: 12px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--text-light);
+    text-align: right;
+    width: 40px;
+  }
+
+  /* ========== MODAL ========== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,30,60,0.4);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(29,78,216,0.18);
+    padding: 28px;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(24px) scale(0.97);
+    transition: transform 0.25s ease;
+    border: 1.5px solid var(--border);
+  }
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+  .modal-title {
+    font-family: 'ZCOOL KuaiLe', sans-serif;
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid var(--bg2);
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-label {
+    display: block;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+    background: white;
+  }
+  .form-textarea { resize: vertical; min-height: 72px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .category-chips { display: flex; gap: 7px; flex-wrap: wrap; }
+  .cat-chip {
+    padding: 7px 13px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-mid);
+  }
+  .cat-chip.active {
+    background: var(--cat-color);
+    color: white;
+    border-color: var(--cat-color);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transform: scale(1.04);
+  }
+  .cat-chip:hover:not(.active) { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+
+  .modal-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1.5px solid var(--bg2);
+  }
+  .btn-primary, .btn-secondary {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(59,130,246,0.45); }
+  .btn-secondary { background: var(--bg); color: var(--text-mid); border: 1.5px solid var(--border); }
+  .btn-secondary:hover { background: var(--bg2); color: var(--text); }
+
+  /* ========== REWARD POPUP ========== */
+  .reward-popup {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 999;
+    background: white;
+    border-radius: 28px;
+    padding: 36px 44px;
+    text-align: center;
+    box-shadow: 0 24px 80px rgba(29,78,216,0.2);
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid var(--border);
+  }
+  .reward-popup.show { transform: translate(-50%, -50%) scale(1); pointer-events: all; }
+  .reward-emoji { font-size: 68px; animation: spin 0.8s ease; display: block; margin-bottom: 12px; }
+  @keyframes spin { from{transform:rotate(-180deg) scale(0)} to{transform:rotate(0) scale(1)} }
+  .reward-title { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 26px; color: var(--text); margin-bottom: 6px; }
+  .reward-sub { font-size: 15px; color: var(--text-mid); margin-bottom: 18px; }
+  .reward-points-big {
+    font-size: 44px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ========== CONFETTI ========== */
+  .confetti-piece {
+    position: fixed;
+    pointer-events: none;
+    z-index: 998;
+    border-radius: 2px;
+    animation: confettiFall 2s ease forwards;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ========== COMPLETE DAY BUTTON ========== */
+  .complete-day-wrap { display: flex; justify-content: center; padding: 6px 0; }
+  .complete-day-btn {
+    background: linear-gradient(135deg, var(--green), #059669);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 13px 32px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.22s;
+    box-shadow: 0 6px 18px rgba(16,185,129,0.35);
+    font-family: 'Nunito', sans-serif;
+  }
+  .complete-day-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(16,185,129,0.45); }
+  .complete-day-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* ========== VIEW TOGGLE ========== */
+  .view-toggle {
+    display: flex;
+    gap: 3px;
+    background: var(--bg2);
+    border-radius: 10px;
+    padding: 3px;
+  }
+  .view-btn {
+    padding: 7px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-light);
+    background: transparent;
+  }
+  .view-btn.active { background: white; color: var(--text); box-shadow: 0 1px 6px rgba(59,130,246,0.12); }
+
+  /* ========== SCROLLBAR ========== */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--blue-mid); }
+
+  /* ========== REWARD STORE ========== */
+  .reward-store-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .store-item {
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 12px;
+    text-align: center;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .store-item:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(59,130,246,0.12); background: var(--primary-soft); }
+  .store-item.redeemed { border-color: var(--green); background: var(--green-light); }
+  .store-icon { font-size: 28px; margin-bottom: 5px; }
+  .store-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; line-height: 1.3; }
+  .store-cost { font-size: 11px; color: var(--purple); font-weight: 800; }
+
+  /* ========== BATCH MODAL ========== */
+  .batch-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 18px;
+    border: 1.5px solid var(--border);
+  }
+  .batch-tab {
+    flex: 1;
+    padding: 9px;
+    border: none;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-light);
+    background: transparent;
+    text-align: center;
+  }
+  .batch-tab.active { background: white; color: var(--text); box-shadow: 0 2px 8px rgba(59,130,246,0.1); }
+  .batch-panel { display: none; }
+  .batch-panel.active { display: block; }
+  .format-guide {
+    background: linear-gradient(135deg, #F0FFF4, #ECFDF5);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--green);
+  }
+  .format-guide-title { font-size: 11px; font-weight: 800; color: var(--green); margin-bottom: 5px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .format-guide code {
+    display: block;
+    font-size: 12px;
+    color: #065F46;
+    font-family: monospace;
+    line-height: 1.8;
+    background: rgba(0,0,0,0.04);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-top: 5px;
+  }
+  .parse-preview {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .preview-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .preview-item.ok { background: #F0FFF4; color: #065F46; border: 1px solid #A7F3D0; }
+  .preview-item.err { background: #FFF1F2; color: #9F1239; border: 1px solid #FECDD3; }
+  .preview-item-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .copy-dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+    margin-top: 6px;
+  }
+  .copy-date-cell {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1.5px solid transparent;
+    transition: all 0.12s;
+    background: var(--bg);
+    color: var(--text-mid);
+    position: relative;
+  }
+  .copy-date-cell:hover { border-color: var(--secondary); background: #E0F9F9; }
+  .copy-date-cell.selected-copy { background: var(--secondary); color: white; border-color: var(--secondary); }
+  .copy-date-cell.is-source { background: var(--accent); border-color: var(--accent); color: white; cursor: default; }
+  .copy-date-cell.other-m { opacity: 0.25; }
+  .copy-nav {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+  }
+  .copy-nav-btn {
+    width: 30px; height: 30px; border: 1.5px solid var(--border); background: var(--bg);
+    border-radius: 8px; font-size: 14px; cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center; color: var(--primary);
+  }
+  .copy-nav-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+  .copy-month-label { flex: 1; text-align: center; font-weight: 800; font-size: 13px; color: var(--text); }
+  .selected-dates-info {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-light);
+    min-height: 18px;
+  }
+  .copy-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .copy-opt-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    color: var(--text-mid);
+    transition: all 0.15s;
+  }
+  .copy-opt-label:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+
+  /* ========== REDEEM CARD MODAL ========== */
+  .redeem-card {
+    background: linear-gradient(145deg, #EFF6FF, #DBEAFE);
+    border: 2px dashed var(--primary);
+    border-radius: 20px;
+    padding: 28px 24px;
+    text-align: center;
+    margin: 4px 0 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .redeem-card::before, .redeem-card::after {
+    content: '';
+    position: absolute;
+    width: 28px; height: 28px;
+    background: var(--bg);
+    border-radius: 50%;
+    top: 50%; transform: translateY(-50%);
+  }
+  .redeem-card::before { left: -14px; }
+  .redeem-card::after  { right: -14px; }
+  .redeem-card-icon { font-size: 52px; margin-bottom: 10px; display: block; animation: pop 0.5s ease; }
+  .redeem-card-name { font-family: 'ZCOOL KuaiLe', sans-serif; font-size: 22px; color: var(--text); margin-bottom: 6px; }
+  .redeem-card-cost { font-size: 14px; color: var(--primary); font-weight: 800; margin-bottom: 8px; }
+  .redeem-card-no { font-size: 11px; color: var(--text-light); font-weight: 700; letter-spacing: 2px; margin-top: 10px; }
+  .redeem-card-date { font-size: 11px; color: var(--text-light); font-weight: 700; }
+
+  /* ========== MY ITEMS MODAL ========== */
+  .my-items-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .my-item-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    background: white;
+    transition: all 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .my-item-card.used {
+    background: #F8FAFC;
+    border-color: #E2E8F0;
+    opacity: 0.65;
+  }
+  .my-item-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--primary);
+    border-radius: 14px 0 0 14px;
+  }
+  .my-item-card.used::before { background: var(--text-light); }
+  .my-item-emoji { font-size: 32px; flex-shrink: 0; }
+  .my-item-info { flex: 1; min-width: 0; }
+  .my-item-name { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+  .my-item-meta { font-size: 11px; color: var(--text-light); font-weight: 700; }
+  .my-item-no { font-size: 10px; color: var(--text-light); letter-spacing: 1px; margin-top: 2px; }
+  .use-btn {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-family: 'Nunito', sans-serif;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(59,130,246,0.3);
+  }
+  .use-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(59,130,246,0.4); }
+  .used-stamp {
+    padding: 5px 12px;
+    border-radius: 8px;
+    background: #F1F5F9;
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .my-items-empty { text-align: center; padding: 36px 16px; color: var(--text-light); }
+  .my-items-empty-icon { font-size: 48px; margin-bottom: 10px; }
+  .my-items-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 50%;
+    width: 18px; height: 18px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* ========== TIP BOX ========== */
+  .tip-box {
+    background: linear-gradient(135deg, var(--primary-soft), #EFF6FF);
+    border-radius: 12px;
+    padding: 11px 14px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-top: 10px;
+    border: 1px solid var(--border);
+  }
+  .tip-icon { font-size: 18px; flex-shrink: 0; }
+  .tip-text { font-size: 12px; color: var(--primary-dark); font-weight: 700; line-height: 1.6; }
+    display: flex;
+    gap: 4px;
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 4px;
+    margin-bottom: 20px;
+  }
+  .batch-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-light);
+    background: transparent;
+    text-align: center;
+  }
+  .batch-tab.active { background: white; color: var(--text); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  .batch-panel { display: none; }
+  .batch-panel.active { display: block; }
+  .format-guide {
+    background: linear-gradient(135deg, #F0FFF4, #ECFDF5);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    border-left: 4px solid var(--green);
+  }
+  .format-guide-title { font-size: 12px; font-weight: 800; color: var(--green); margin-bottom: 6px; }
+  .format-guide code {
+    display: block;
+    font-size: 12px;
+    color: #065F46;
+    font-family: monospace;
+    line-height: 1.8;
+    background: rgba(0,0,0,0.04);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-top: 6px;
+  }
+  .parse-preview {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .preview-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .preview-item.ok { background: #F0FFF4; color: #065F46; }
+  .preview-item.err { background: #FFF1F2; color: #9F1239; }
+  .preview-item-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .copy-dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .copy-date-cell {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: all 0.15s;
+    background: var(--bg);
+    color: var(--text);
+    position: relative;
+  }
+  .copy-date-cell:hover { border-color: var(--secondary); }
+  .copy-date-cell.selected-copy { background: var(--secondary); color: white; border-color: var(--secondary); }
+  .copy-date-cell.is-source { background: var(--accent); border-color: #FBB; color: var(--text); cursor: default; }
+  .copy-date-cell.other-m { opacity: 0.3; }
+  .copy-nav {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  }
+  .copy-nav-btn {
+    width: 32px; height: 32px; border: none; background: var(--bg); border-radius: 50%;
+    font-size: 16px; cursor: pointer; transition: background 0.18s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .copy-nav-btn:hover { background: var(--accent); }
+  .copy-month-label { flex: 1; text-align: center; font-weight: 800; font-size: 14px; }
+  .selected-dates-info {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-light);
+    min-height: 20px;
+  }
+  .copy-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .copy-opt-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--bg);
+  }
+  .copy-opt-label:hover { background: #EEE; }
+
+  /* TIPS */
+  .tip-box {
+    background: linear-gradient(135deg, #EFF6FF, #E0F2FE);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 12px;
+  }
+  .tip-icon { font-size: 20px; flex-shrink: 0; }
+  .tip-text { font-size: 13px; color: var(--blue); font-weight: 700; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <div class="header-icon">☀️</div>
+        <div>
+          <h1>我的暑假大计划</h1>
+          <div class="header-subtitle">快乐学习 · 健康成长 · 每天进步</div>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-badge">⭐ <span class="num" id="totalPoints">0</span> 积分</div>
+        <div class="stat-badge">🎖 <span class="num" id="badgeCount">0</span> 徽章</div>
+        <div class="stat-badge">✅ <span class="num" id="completedDays">0</span> 天完成</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Calendar -->
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon">📅</span> 暑假日历</div>
+        <div class="date-nav">
+          <button class="date-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <div class="date-display">
+            <div id="calMonthLabel"></div>
+            <div class="weekday" id="calDayLabel"></div>
+          </div>
+          <button class="date-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="date-grid" id="calGrid"></div>
+      </div>
+
+      <!-- Progress Ring -->
+      <div class="card">
+        <div class="card-title"><span class="card-title-icon">📊</span> 今日进度</div>
+        <div class="progress-section">
+          <div class="progress-ring-wrap">
+            <svg viewBox="0 0 120 120" width="120" height="120">
+              <circle cx="60" cy="60" r="50" fill="none" stroke="#F0F0F0" stroke-width="12"/>
+              <circle id="progressCircle" class="progress-ring-circle" cx="60" cy="60" r="50"
+                fill="none" stroke="url(#progressGrad)" stroke-width="12"
+                stroke-linecap="round"
+                stroke-dasharray="314"
+                stroke-dashoffset="314"/>
+              <defs>
+                <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#3B82F6"/>
+                  <stop offset="100%" stop-color="#06B6D4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="progress-center">
+              <div class="progress-pct" id="progressPct">0%</div>
+              <div class="progress-label">完成</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; justify-content:center; font-size:13px; font-weight:700; color:var(--text-light)">
+          <span>✅ <span id="doneCount">0</span> 已完成</span>
+          <span>⏳ <span id="todoCount">0</span> 待完成</span>
+        </div>
+      </div>
+
+      <!-- Rewards -->
+      <div class="card rewards-card">
+        <div class="rewards-header">
+          <div class="card-title" style="margin:0"><span class="card-title-icon">🏆</span> 我的奖励</div>
+          <div class="points-display">⭐ <span id="sidePoints">0</span></div>
+        </div>
+        <div class="badges-grid" id="badgesGrid"></div>
+        <div class="streak-bar">
+          <span class="streak-icon">🔥</span>
+          <div>
+            <div class="streak-count"><span id="streakCount">0</span> 天</div>
+            <div class="streak-text">连续完成日程<br>继续加油！💪</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reward Store -->
+      <div class="card" style="border:1.5px solid rgba(245,158,11,0.2)">
+        <div class="card-title" style="justify-content:space-between">
+          <span><span class="card-title-icon">🎁</span> 兑换商店</span>
+          <button onclick="openMyItems()" style="background:var(--primary-soft);border:1.5px solid var(--border);border-radius:10px;padding:5px 12px;font-size:12px;font-weight:800;cursor:pointer;color:var(--primary);font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:4px">🎒 我的商品<span class="my-items-badge" id="myItemsBadge" style="display:none">0</span></button>
+        </div>
+        <div class="reward-store-grid" id="rewardStore"></div>
+      </div>
+    </aside>
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+      <div class="card">
+        <div class="schedule-header">
+          <div class="card-title" style="margin:0">
+            📋 <span id="selectedDateLabel">今天的日程</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <div class="view-toggle">
+              <button class="view-btn active" id="viewList" onclick="setView('list')">📋 列表</button>
+              <button class="view-btn" id="viewTime" onclick="setView('timeline')">⏱ 时间轴</button>
+            </div>
+            <button class="add-btn" onclick="openAddModal()">
+              ✚ 添加任务
+            </button>
+            <button class="add-btn" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9);box-shadow:0 4px 14px rgba(139,92,246,0.35)" onclick="openBatchModal()">
+              ≡ 批量录入
+            </button>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <span class="tip-text">每完成一个任务可以获得积分 ⭐，完成当天全部任务还有神秘大奖励！你一定可以的！🌈</span>
+        </div>
+      </div>
+
+      <!-- Tasks -->
+      <div class="card" id="tasksCard">
+        <div class="tasks-container" id="tasksList"></div>
+      </div>
+
+      <!-- Complete Day Button -->
+      <div class="complete-day-wrap">
+        <button class="complete-day-btn" id="completeDayBtn" onclick="completeDay()">
+          🎉 完成今天所有日程！
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Add Task Modal -->
+<div class="modal-overlay" id="taskModal">
+  <div class="modal">
+    <div class="modal-title" id="modalTitle">➕ 添加新任务</div>
+
+    <div class="form-group">
+      <label class="form-label">📝 任务名称</label>
+      <input type="text" class="form-input" id="taskName" placeholder="例如：做数学练习题" maxlength="30"/>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">🏷 任务类型</label>
+      <div class="category-chips" id="categoryChips"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group" style="margin:0">
+        <label class="form-label">⏰ 开始时间</label>
+        <input type="time" class="form-input" id="taskStart" value="09:00"/>
+      </div>
+      <div class="form-group" style="margin:0">
+        <label class="form-label">⏰ 结束时间</label>
+        <input type="time" class="form-input" id="taskEnd" value="10:00"/>
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-top:18px">
+      <label class="form-label">⭐ 任务积分</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap" id="pointsChips"></div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">📒 备注（可选）</label>
+      <textarea class="form-textarea" id="taskNote" placeholder="添加任何说明或提醒..."></textarea>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeModal()">取消</button>
+      <button class="btn-primary" onclick="saveTask()">保存任务 ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- Batch Import Modal -->
+<div class="modal-overlay" id="batchModal">
+  <div class="modal" style="max-width:600px">
+    <div class="modal-title">📋 批量录入日程</div>
+
+    <div class="batch-tabs">
+      <button class="batch-tab active" id="tabText" onclick="switchBatchTab('text')">✏️ 文字快速录入</button>
+      <button class="batch-tab" id="tabCopy" onclick="switchBatchTab('copy')">📅 复制到其他日期</button>
+    </div>
+
+    <!-- TAB 1: Text Import -->
+    <div class="batch-panel active" id="panelText">
+      <div class="format-guide">
+        <div class="format-guide-title">📌 每行一个任务，格式如下：</div>
+        <code>开始时间-结束时间 任务名称 [类型] [积分分]
+例：09:00-10:30 数学练习 学习 20分
+    14:00-15:00 画画 艺术
+    16:30-17:30 打篮球 运动 15分
+    20:00-21:00 读书</code>
+        <div style="margin-top:8px;font-size:12px;color:#059669">
+          💡 类型可选：学习/运动/艺术/阅读/休息/玩耍/家务/其他（默认：学习）<br>
+          💡 积分可省略（默认10分），时间格式 HH:MM
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px">
+        <label class="form-label">📝 粘贴或输入日程内容</label>
+        <textarea class="form-textarea" id="batchText" style="min-height:140px;font-family:monospace;font-size:13px"
+          placeholder="09:00-10:30 数学练习 学习 20分&#10;11:00-12:00 阅读课外书 阅读&#10;14:00-15:30 画画 艺术 15分&#10;16:00-17:00 踢足球 运动"
+          oninput="parseBatchPreview()"></textarea>
+      </div>
+
+      <div id="batchPreview" class="parse-preview"></div>
+    </div>
+
+    <!-- TAB 2: Copy to Dates -->
+    <div class="batch-panel" id="panelCopy">
+      <div style="margin-bottom:12px;font-size:14px;font-weight:700;color:var(--text-light)">
+        将 <strong style="color:var(--primary)" id="copySourceLabel">今天</strong> 的日程复制到以下日期：
+      </div>
+
+      <div class="copy-nav">
+        <button class="copy-nav-btn" onclick="copyCal(-1)">‹</button>
+        <div class="copy-month-label" id="copyMonthLabel"></div>
+        <button class="copy-nav-btn" onclick="copyCal(1)">›</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px">
+        ${['日','一','二','三','四','五','六'].map(d=>`<div style="text-align:center;font-size:11px;font-weight:700;color:var(--text-light);padding:4px 0">${d}</div>`).join('')}
+      </div>
+      <div class="copy-dates-grid" id="copyCalGrid"></div>
+
+      <div class="selected-dates-info" id="copySelInfo">请点击日期选择目标日期（可多选）</div>
+
+      <div class="copy-options">
+        <label class="copy-opt-label">
+          <input type="checkbox" id="copyOverwrite"> 覆盖已有日程
+        </label>
+        <label class="copy-opt-label">
+          <input type="checkbox" id="copyResetDone" checked> 重置完成状态
+        </label>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeBatchModal()">取消</button>
+      <button class="btn-primary" id="batchConfirmBtn" onclick="confirmBatch()">✅ 确认导入</button>
+    </div>
+  </div>
+</div>
+
+<!-- Redeem Confirm Modal -->
+<div class="modal-overlay" id="redeemModal">
+  <div class="modal" style="max-width:400px">
+    <div class="modal-title">🎫 确认兑换</div>
+    <div class="redeem-card" id="redeemCardPreview">
+      <span class="redeem-card-icon" id="rcIcon">🎁</span>
+      <div class="redeem-card-name" id="rcName">奖励名称</div>
+      <div class="redeem-card-cost" id="rcCost">⭐ 300 积分</div>
+      <div class="redeem-card-date" id="rcDate"></div>
+      <div class="redeem-card-no" id="rcNo">NO. --------</div>
+    </div>
+    <p style="font-size:13px;color:var(--text-mid);font-weight:700;text-align:center;margin-bottom:4px">确认后将扣除积分并生成兑换卡 🎉</p>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="closeRedeemModal()">再想想</button>
+      <button class="btn-primary" onclick="confirmRedeem()">✅ 确认兑换</button>
+    </div>
+  </div>
+</div>
+
+<!-- My Items Modal -->
+<div class="modal-overlay" id="myItemsModal">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-title">🎒 我的商品</div>
+    <div class="my-items-grid" id="myItemsList"></div>
+    <div class="modal-footer" style="margin-top:16px">
+      <button class="btn-secondary" onclick="closeMyItems()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- Reward Popup -->
+<div class="reward-popup" id="rewardPopup">
+  <span class="reward-emoji" id="rewardEmoji">🎉</span>
+  <div class="reward-title" id="rewardTitle">太棒了！</div>
+  <div class="reward-sub" id="rewardSub">你完成了今天的日程！</div>
+  <div class="reward-points-big" id="rewardPointsBig">+50 积分</div>
+  <button class="btn-primary" style="margin-top:20px;width:100%;max-width:200px" onclick="closeRewardPopup()">谢谢！耶！🙌</button>
+</div>
+
+<script>
+// ========== DATA ==========
+const CATEGORIES = [
+  { id: 'study',   name: '学习',   icon: '📚', color: '#3B82F6' },
+  { id: 'sport',   name: '运动',   icon: '⚽', color: '#22C55E' },
+  { id: 'art',     name: '艺术',   icon: '🎨', color: '#EC4899' },
+  { id: 'read',    name: '阅读',   icon: '📖', color: '#8B5CF6' },
+  { id: 'rest',    name: '休息',   icon: '😴', color: '#FB923C' },
+  { id: 'play',    name: '玩耍',   icon: '🎮', color: '#06B6D4' },
+  { id: 'family',  name: '家务',   icon: '🏠', color: '#F59E0B' },
+  { id: 'other',   name: '其他',   icon: '✨', color: '#6366F1' },
+];
+
+const POINTS_OPTIONS = [5, 10, 15, 20, 30];
+
+const BADGES = [
+  { id: 'first',     name: '初次完成',  icon: '🌱', req: 1,   type: 'days' },
+  { id: 'three',     name: '三天达成',  icon: '🌟', req: 3,   type: 'days' },
+  { id: 'seven',     name: '七天传说',  icon: '🏆', req: 7,   type: 'days' },
+  { id: 'hundred',   name: '百分英雄',  icon: '💯', req: 100, type: 'points' },
+  { id: 'fivehund',  name: '积分大师',  icon: '🎖', req: 500, type: 'points' },
+  { id: 'streak3',   name: '连续3天',   icon: '🔥', req: 3,   type: 'streak' },
+  { id: 'streak7',   name: '连续一周',  icon: '⚡', req: 7,   type: 'streak' },
+  { id: 'tasks10',   name: '完成10任务',icon: '🎯', req: 10,  type: 'tasks' },
+];
+
+const REWARD_STORE = [
+  { id: 'r0', name: '测试兑换',              icon: '🧪', cost: 5 },
+  { id: 'r1', name: '吃一颗糖',              icon: '🍬', cost: 300 },
+  { id: 'r2', name: '额外电子产品20分钟',   icon: '📱', cost: 300 },
+  { id: 'r3', name: '买一本书',              icon: '📚', cost: 300 },
+  { id: 'r4', name: '周末看一部电影',        icon: '🎬', cost: 500 },
+  { id: 'r5', name: '去游乐园',              icon: '🎡', cost: 1000 },
+  { id: 'r6', name: '小礼物',               icon: '🎁', cost: 1000 },
+];
+
+// State
+let state = JSON.parse(localStorage.getItem('summerSchedule') || '{}');
+if (!state.tasks) state.tasks = {};
+if (!state.points) state.points = 0;
+if (!state.completedDays) state.completedDays = [];
+if (!state.streak) state.streak = 0;
+if (!state.lastCompleted) state.lastCompleted = null;
+if (!state.unlockedBadges) state.unlockedBadges = [];
+if (!state.redeemedRewards) state.redeemedRewards = [];
+if (!state.myItems) state.myItems = [];
+if (!state.totalTasksDone) state.totalTasksDone = 0;
+
+let currentViewDate = new Date();
+let currentCalMonth = new Date(currentViewDate.getFullYear(), currentViewDate.getMonth(), 1);
+let selectedDateKey = dateKey(currentViewDate);
+let currentView = 'list';
+let editingTaskId = null;
+let selectedCategory = CATEGORIES[0].id;
+let selectedPoints = 10;
+
+function save() { localStorage.setItem('summerSchedule', JSON.stringify(state)); }
+function dateKey(d) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+function todayKey() { return dateKey(new Date()); }
+function fmtDate(d) {
+  const days = ['周日','周一','周二','周三','周四','周五','周六'];
+  return `${d.getMonth()+1}月${d.getDate()}日 ${days[d.getDay()]}`;
+}
+
+// ========== RENDER ==========
+function render() {
+  renderCalendar();
+  renderTasks();
+  renderBadges();
+  renderStore();
+  updateStats();
+  updateProgress();
+  save();
+}
+
+function updateStats() {
+  const pts = state.points;
+  document.getElementById('totalPoints').textContent = pts;
+  document.getElementById('sidePoints').textContent = pts;
+  document.getElementById('badgeCount').textContent = state.unlockedBadges.length;
+  document.getElementById('completedDays').textContent = state.completedDays.length;
+  document.getElementById('streakCount').textContent = state.streak;
+}
+
+function updateProgress() {
+  const tasks = (state.tasks[selectedDateKey] || []);
+  const total = tasks.length;
+  const done = tasks.filter(t => t.done).length;
+  const pct = total === 0 ? 0 : Math.round(done / total * 100);
+
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('todoCount').textContent = total - done;
+
+  const circ = document.getElementById('progressCircle');
+  const offset = 314 - (314 * pct / 100);
+  circ.style.strokeDashoffset = offset;
+
+  const btn = document.getElementById('completeDayBtn');
+  const alreadyDone = state.completedDays.includes(selectedDateKey);
+  if (alreadyDone) {
+    btn.textContent = '✅ 今天已完成！棒棒哒！';
+    btn.disabled = true;
+    btn.style.background = 'linear-gradient(135deg,#D1FAE5,#A7F3D0)';
+    btn.style.color = '#065F46';
+  } else if (total === 0 || done < total) {
+    btn.innerHTML = `🎉 完成今天所有日程！（${done}/${total}）`;
+    btn.disabled = total === 0;
+  } else {
+    btn.innerHTML = `🎉 完成今天所有日程！`;
+    btn.disabled = false;
+  }
+}
+
+// ========== CALENDAR ==========
+function renderCalendar() {
+  const year = currentCalMonth.getFullYear();
+  const month = currentCalMonth.getMonth();
+  const today = new Date();
+  const todayStr = dateKey(today);
+
+  document.getElementById('calMonthLabel').textContent = `${year}年${month+1}月`;
+  document.getElementById('calDayLabel').textContent = fmtDate(new Date(selectedDateKey));
+
+  const grid = document.getElementById('calGrid');
+  const dayNames = ['日','一','二','三','四','五','六'];
+  let html = dayNames.map(d => `<div class="date-grid-header">${d}</div>`).join('');
+
+  const first = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const daysInPrev = new Date(year, month, 0).getDate();
+
+  for (let i = 0; i < first; i++) {
+    const d = daysInPrev - first + 1 + i;
+    const key = dateKey(new Date(year, month-1, d));
+    const tasks = state.tasks[key] || [];
+    const hasTasks = tasks.length > 0;
+    const comp = state.completedDays.includes(key);
+    html += `<div class="date-cell other-month ${hasTasks?(comp?'completed-day':'has-tasks'):''} ${key===selectedDateKey?'selected':''}" onclick="selectDate('${key}')">${d}</div>`;
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = dateKey(new Date(year, month, d));
+    const tasks = state.tasks[key] || [];
+    const hasTasks = tasks.length > 0;
+    const comp = state.completedDays.includes(key);
+    const cls = [
+      key === todayStr ? 'today' : '',
+      key === selectedDateKey ? 'selected' : '',
+      hasTasks ? (comp ? 'completed-day' : 'has-tasks') : '',
+    ].filter(Boolean).join(' ');
+    html += `<div class="date-cell ${cls}" onclick="selectDate('${key}')">${d}</div>`;
+  }
+
+  const remaining = (7 - (first + daysInMonth) % 7) % 7;
+  for (let i = 1; i <= remaining; i++) {
+    const key = dateKey(new Date(year, month+1, i));
+    const tasks = state.tasks[key] || [];
+    const hasTasks = tasks.length > 0;
+    const comp = state.completedDays.includes(key);
+    html += `<div class="date-cell other-month ${hasTasks?(comp?'completed-day':'has-tasks'):''} ${key===selectedDateKey?'selected':''}" onclick="selectDate('${key}')">${i}</div>`;
+  }
+
+  grid.innerHTML = html;
+}
+
+function selectDate(key) {
+  selectedDateKey = key;
+  const [y, m, d] = key.split('-').map(Number);
+  document.getElementById('selectedDateLabel').textContent =
+    key === todayKey() ? '今天的日程' : fmtDate(new Date(y, m-1, d)) + ' 的日程';
+  render();
+}
+
+function changeMonth(dir) {
+  currentCalMonth.setMonth(currentCalMonth.getMonth() + dir);
+  renderCalendar();
+}
+
+// ========== TASKS ==========
+function renderTasks() {
+  const tasks = (state.tasks[selectedDateKey] || []).slice().sort((a,b) => a.start.localeCompare(b.start));
+  const container = document.getElementById('tasksList');
+
+  if (tasks.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">📅</div>
+        <div class="empty-title">还没有日程哦！</div>
+        <div class="empty-sub">点击右上角「添加任务」开始规划你的一天吧 ✨</div>
+      </div>`;
+    return;
+  }
+
+  if (currentView === 'timeline') {
+    renderTimeline(tasks, container);
+  } else {
+    renderList(tasks, container);
+  }
+}
+
+function renderList(tasks, container) {
+  container.innerHTML = tasks.map(task => {
+    const cat = CATEGORIES.find(c => c.id === task.category) || CATEGORIES[0];
+    return `
+    <div class="task-item ${task.done ? 'done' : ''}" style="--category-color:${cat.color}" onclick="toggleTask('${task.id}')">
+      <div class="task-checkbox">${task.done ? '✓' : ''}</div>
+      <div class="task-info">
+        <div class="task-time">⏰ ${task.start} – ${task.end}</div>
+        <div class="task-name">${task.icon || cat.icon} ${task.name}</div>
+        ${task.note ? `<div style="font-size:12px;color:var(--text-light);margin-top:2px">${task.note}</div>` : ''}
+      </div>
+      <span class="task-cat-badge" style="background:${cat.color}">${cat.icon} ${cat.name}</span>
+      <span class="task-points">+${task.points}⭐</span>
+      <div class="task-actions">
+        <button class="task-action-btn edit" onclick="event.stopPropagation();editTask('${task.id}')">✏️</button>
+        <button class="task-action-btn" onclick="event.stopPropagation();deleteTask('${task.id}')">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderTimeline(tasks, container) {
+  const html = `
+  <div class="time-timeline">
+    <div class="timeline-line"></div>
+    ${tasks.map(task => {
+      const cat = CATEGORIES.find(c => c.id === task.category) || CATEGORIES[0];
+      return `
+      <div class="timeline-item">
+        <div class="timeline-time">${task.start}</div>
+        <div class="timeline-dot" style="--category-color:${cat.color}"></div>
+        <div class="task-item ${task.done ? 'done' : ''}" style="--category-color:${cat.color}" onclick="toggleTask('${task.id}')">
+          <div class="task-checkbox">${task.done ? '✓' : ''}</div>
+          <div class="task-info">
+            <div class="task-time">⏰ ${task.start} – ${task.end}</div>
+            <div class="task-name">${cat.icon} ${task.name}</div>
+            ${task.note ? `<div style="font-size:12px;color:var(--text-light);margin-top:2px">${task.note}</div>` : ''}
+          </div>
+          <span class="task-points">+${task.points}⭐</span>
+          <div class="task-actions">
+            <button class="task-action-btn edit" onclick="event.stopPropagation();editTask('${task.id}')">✏️</button>
+            <button class="task-action-btn" onclick="event.stopPropagation();deleteTask('${task.id}')">🗑️</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+  container.innerHTML = html;
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('viewList').classList.toggle('active', v === 'list');
+  document.getElementById('viewTime').classList.toggle('active', v === 'timeline');
+  renderTasks();
+}
+
+// ========== BADGES ==========
+function renderBadges() {
+  const grid = document.getElementById('badgesGrid');
+  grid.innerHTML = BADGES.map(b => {
+    const unlocked = state.unlockedBadges.includes(b.id);
+    return `
+    <div class="badge-item ${unlocked ? 'unlocked' : 'locked'}" title="${b.name}（${unlocked ? '已获得！' : '未获得'}）">
+      <span class="badge-icon">${b.icon}</span>
+      <span class="badge-name">${b.name}</span>
+    </div>`;
+  }).join('');
+}
+
+function checkBadges() {
+  const prev = state.unlockedBadges.length;
+  BADGES.forEach(b => {
+    if (state.unlockedBadges.includes(b.id)) return;
+    let earned = false;
+    if (b.type === 'days' && state.completedDays.length >= b.req) earned = true;
+    if (b.type === 'points' && state.points >= b.req) earned = true;
+    if (b.type === 'streak' && state.streak >= b.req) earned = true;
+    if (b.type === 'tasks' && state.totalTasksDone >= b.req) earned = true;
+    if (earned) state.unlockedBadges.push(b.id);
+  });
+  if (state.unlockedBadges.length > prev) {
+    const newBadge = BADGES.find(b => state.unlockedBadges.includes(b.id));
+    // small notification
+    setTimeout(() => showBadgeNotif(newBadge), 1000);
+  }
+}
+
+function showBadgeNotif(badge) {
+  if (!badge) return;
+  showRewardPopup(badge.icon, `解锁新徽章！`, `「${badge.name}」`, '徽章 +1');
+}
+
+// ========== STORE ==========
+function renderStore() {
+  const grid = document.getElementById('rewardStore');
+  grid.innerHTML = REWARD_STORE.map(r => {
+    const canAfford = state.points >= r.cost;
+    return `
+    <div class="store-item" onclick="openRedeemModal('${r.id}')">
+      <div class="store-icon">${r.icon}</div>
+      <div class="store-name">${r.name}</div>
+      <div class="store-cost">${canAfford ? '⭐ '+r.cost : '🔒 '+r.cost}</div>
+    </div>`;
+  }).join('');
+  // update badge
+  const unused = (state.myItems || []).filter(i => !i.used).length;
+  const badge = document.getElementById('myItemsBadge');
+  if (badge) {
+    badge.textContent = unused;
+    badge.style.display = unused > 0 ? 'inline-flex' : 'none';
+  }
+}
+
+let pendingRedeemId = null;
+
+function openRedeemModal(id) {
+  const r = REWARD_STORE.find(x => x.id === id);
+  if (!r) return;
+  if (state.points < r.cost) {
+    alert(`还差 ${r.cost - state.points} 积分才能兑换「${r.name}」，继续加油！💪`);
+    return;
+  }
+  pendingRedeemId = id;
+  document.getElementById('rcIcon').textContent = r.icon;
+  document.getElementById('rcName').textContent = r.name;
+  document.getElementById('rcCost').textContent = `⭐ ${r.cost} 积分`;
+  const now = new Date();
+  document.getElementById('rcDate').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
+  document.getElementById('rcNo').textContent = `NO. ${Date.now().toString().slice(-8)}`;
+  document.getElementById('redeemModal').classList.add('open');
+}
+
+function closeRedeemModal() {
+  document.getElementById('redeemModal').classList.remove('open');
+  pendingRedeemId = null;
+}
+
+function confirmRedeem() {
+  const r = REWARD_STORE.find(x => x.id === pendingRedeemId);
+  if (!r) return;
+  if (state.points < r.cost) { alert('积分不足！'); closeRedeemModal(); return; }
+  state.points -= r.cost;
+  if (!state.myItems) state.myItems = [];
+  const now = new Date();
+  state.myItems.push({
+    uid: Date.now().toString(),
+    rewardId: r.id,
+    name: r.name,
+    icon: r.icon,
+    cost: r.cost,
+    date: `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`,
+    used: false,
+  });
+  save();
+  closeRedeemModal();
+  render();
+  showRewardPopup(r.icon, '兑换成功！', `「${r.name}」兑换卡已入库`, `-${r.cost} 积分`);
+}
+
+function openMyItems() {
+  renderMyItems();
+  document.getElementById('myItemsModal').classList.add('open');
+}
+
+function closeMyItems() {
+  document.getElementById('myItemsModal').classList.remove('open');
+}
+
+function renderMyItems() {
+  const items = state.myItems || [];
+  const list = document.getElementById('myItemsList');
+  if (items.length === 0) {
+    list.innerHTML = `<div class="my-items-empty"><div class="my-items-empty-icon">🎒</div><div style="font-weight:700;font-size:15px;color:var(--text-mid)">还没有兑换任何商品</div><div style="font-size:13px;margin-top:4px">去兑换商店逛逛吧！</div></div>`;
+    return;
+  }
+  // show newest first
+  list.innerHTML = [...items].reverse().map(item => `
+  <div class="my-item-card ${item.used ? 'used' : ''}">
+    <div class="my-item-emoji">${item.icon}</div>
+    <div class="my-item-info">
+      <div class="my-item-name">${item.name}</div>
+      <div class="my-item-meta">兑换于 ${item.date} · ⭐${item.cost}分</div>
+      <div class="my-item-no">NO. ${item.uid.slice(-8)}</div>
+    </div>
+    ${item.used
+      ? `<span class="used-stamp">✅ 已核销</span>`
+      : `<button class="use-btn" onclick="useItem('${item.uid}')">核销</button>`
+    }
+  </div>`).join('');
+}
+
+function useItem(uid) {
+  if (!confirm('确认核销这张兑换卡吗？核销后不可撤销哦！')) return;
+  const item = (state.myItems || []).find(i => i.uid === uid);
+  if (!item) return;
+  item.used = true;
+  save();
+  renderMyItems();
+  renderStore();
+  showToast(`✅ 「${item.name}」已核销！`);
+}
+
+document.getElementById('redeemModal').addEventListener('click', function(e) { if(e.target===this) closeRedeemModal(); });
+document.getElementById('myItemsModal').addEventListener('click', function(e) { if(e.target===this) closeMyItems(); });
+
+// ========== TOGGLE / DELETE / EDIT ==========
+function toggleTask(id) {
+  const tasks = state.tasks[selectedDateKey];
+  if (!tasks) return;
+  const t = tasks.find(t => t.id === id);
+  if (!t) return;
+  const wasDone = t.done;
+  t.done = !t.done;
+
+  if (t.done && !wasDone) {
+    // Add points
+    state.points += t.points;
+    state.totalTasksDone++;
+    checkBadges();
+    // Confetti for completing
+    launchConfetti(t.points, t.done);
+  } else if (!t.done && wasDone) {
+    state.points = Math.max(0, state.points - t.points);
+  }
+
+  save();
+  render();
+}
+
+function deleteTask(id) {
+  if (!confirm('确定要删除这个任务吗？')) return;
+  const tasks = state.tasks[selectedDateKey];
+  const idx = tasks.findIndex(t => t.id === id);
+  if (idx > -1) {
+    const t = tasks[idx];
+    if (t.done) state.points = Math.max(0, state.points - t.points);
+    tasks.splice(idx, 1);
+  }
+  save();
+  render();
+}
+
+function editTask(id) {
+  const task = (state.tasks[selectedDateKey] || []).find(t => t.id === id);
+  if (!task) return;
+  editingTaskId = id;
+  document.getElementById('modalTitle').textContent = '✏️ 编辑任务';
+  document.getElementById('taskName').value = task.name;
+  document.getElementById('taskStart').value = task.start;
+  document.getElementById('taskEnd').value = task.end;
+  document.getElementById('taskNote').value = task.note || '';
+  selectedCategory = task.category;
+  selectedPoints = task.points;
+  openAddModal(true);
+}
+
+// ========== COMPLETE DAY ==========
+function completeDay() {
+  const tasks = state.tasks[selectedDateKey] || [];
+  if (tasks.length === 0) { alert('还没有添加任何任务哦！先添加日程再完成吧 📝'); return; }
+
+  const allDone = tasks.every(t => t.done);
+  if (!allDone) {
+    if (!confirm(`还有 ${tasks.filter(t=>!t.done).length} 个任务未完成，确定要完成今天的日程吗？`)) return;
+    // Mark remaining as done
+    tasks.forEach(t => {
+      if (!t.done) {
+        t.done = true;
+        state.points += t.points;
+        state.totalTasksDone++;
+      }
+    });
+  }
+
+  if (!state.completedDays.includes(selectedDateKey)) {
+    state.completedDays.push(selectedDateKey);
+    // Bonus points
+    const bonus = 50;
+    state.points += bonus;
+    // Streak
+    const yesterday = new Date();
+    const selDate = new Date(selectedDateKey);
+    const prevDay = new Date(selDate);
+    prevDay.setDate(prevDay.getDate() - 1);
+    const prevKey = dateKey(prevDay);
+    if (state.completedDays.includes(prevKey)) {
+      state.streak++;
+    } else {
+      state.streak = 1;
+    }
+    state.lastCompleted = selectedDateKey;
+    checkBadges();
+    save();
+    launchConfetti(bonus, true, true);
+    showRewardPopup('🎉', '太棒了！今天日程完成！', `连续完成 ${state.streak} 天！`, `+${bonus} 奖励积分`);
+  }
+
+  save();
+  render();
+}
+
+// ========== CONFETTI ==========
+function launchConfetti(count, show, big) {
+  if (!show) return;
+  const colors = ['#3B82F6','#06B6D4','#F59E0B','#8B5CF6','#10B981','#60A5FA','#A78BFA'];
+  const total = big ? 80 : Math.min(count * 2, 30);
+  for (let i = 0; i < total; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.style.cssText = `
+        left:${Math.random()*100}vw;
+        top:-20px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        width:${6+Math.random()*8}px;
+        height:${6+Math.random()*8}px;
+        animation-duration:${1.5+Math.random()*1.5}s;
+        border-radius:${Math.random()>0.5?'50%':'2px'};
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }, i * 30);
+  }
+}
+
+// ========== REWARD POPUP ==========
+function showRewardPopup(emoji, title, sub, points) {
+  document.getElementById('rewardEmoji').textContent = emoji;
+  document.getElementById('rewardTitle').textContent = title;
+  document.getElementById('rewardSub').textContent = sub;
+  document.getElementById('rewardPointsBig').textContent = points;
+  document.getElementById('rewardPopup').classList.add('show');
+  launchConfetti(50, true, true);
+}
+
+function closeRewardPopup() {
+  document.getElementById('rewardPopup').classList.remove('show');
+}
+
+// ========== MODAL ==========
+function openAddModal(editing) {
+  editingTaskId = editing ? editingTaskId : null;
+  if (!editing) {
+    document.getElementById('modalTitle').textContent = '➕ 添加新任务';
+    document.getElementById('taskName').value = '';
+    document.getElementById('taskStart').value = '09:00';
+    document.getElementById('taskEnd').value = '10:00';
+    document.getElementById('taskNote').value = '';
+    selectedCategory = CATEGORIES[0].id;
+    selectedPoints = 10;
+  }
+  renderCategoryChips();
+  renderPointsChips();
+  document.getElementById('taskModal').classList.add('open');
+  document.getElementById('taskName').focus();
+}
+
+function closeModal() {
+  document.getElementById('taskModal').classList.remove('open');
+  editingTaskId = null;
+}
+
+function renderCategoryChips() {
+  const wrap = document.getElementById('categoryChips');
+  wrap.innerHTML = CATEGORIES.map(c => `
+    <div class="cat-chip ${c.id === selectedCategory ? 'active' : ''}"
+      style="--cat-color:${c.color};${c.id===selectedCategory?`background:${c.color};color:white;border-color:${c.color}`:''}"
+      onclick="selectCategory('${c.id}')">
+      ${c.icon} ${c.name}
+    </div>
+  `).join('');
+}
+
+function renderPointsChips() {
+  const wrap = document.getElementById('pointsChips');
+  wrap.innerHTML = POINTS_OPTIONS.map(p => `
+    <div class="cat-chip ${p===selectedPoints?'active':''}"
+      style="--cat-color:var(--purple);${p===selectedPoints?'background:var(--purple);color:white;border-color:var(--purple)':''}"
+      onclick="selectPointsVal(${p})">
+      ⭐ ${p}分
+    </div>
+  `).join('');
+}
+
+function selectCategory(id) {
+  selectedCategory = id;
+  renderCategoryChips();
+}
+
+function selectPointsVal(p) {
+  selectedPoints = p;
+  renderPointsChips();
+}
+
+function saveTask() {
+  const name = document.getElementById('taskName').value.trim();
+  const start = document.getElementById('taskStart').value;
+  const end = document.getElementById('taskEnd').value;
+  const note = document.getElementById('taskNote').value.trim();
+
+  if (!name) { document.getElementById('taskName').focus(); document.getElementById('taskName').style.borderColor='var(--primary)'; return; }
+  if (!start || !end) { alert('请设置开始和结束时间'); return; }
+  if (start >= end) { alert('结束时间必须晚于开始时间！'); return; }
+
+  const cat = CATEGORIES.find(c => c.id === selectedCategory);
+
+  if (!state.tasks[selectedDateKey]) state.tasks[selectedDateKey] = [];
+
+  if (editingTaskId) {
+    const t = state.tasks[selectedDateKey].find(t => t.id === editingTaskId);
+    if (t) {
+      const wasDone = t.done;
+      const oldPoints = t.points;
+      t.name = name;
+      t.start = start;
+      t.end = end;
+      t.note = note;
+      t.category = selectedCategory;
+      t.icon = cat.icon;
+      t.points = selectedPoints;
+      if (wasDone) {
+        state.points = Math.max(0, state.points - oldPoints + selectedPoints);
+      }
+    }
+  } else {
+    state.tasks[selectedDateKey].push({
+      id: Date.now().toString(),
+      name,
+      start,
+      end,
+      note,
+      category: selectedCategory,
+      icon: cat.icon,
+      points: selectedPoints,
+      done: false,
+    });
+  }
+
+  save();
+  closeModal();
+  render();
+}
+
+// Close modal on overlay click
+document.getElementById('taskModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Enter' && document.getElementById('taskModal').classList.contains('open')) {
+    if (e.target.tagName !== 'TEXTAREA') saveTask();
+  }
+});
+
+// ========== BATCH MODAL ==========
+let batchTab = 'text';
+let copyCalMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+let copySelectedDates = new Set();
+
+const CAT_NAME_MAP = {
+  '学习': 'study', '运动': 'sport', '艺术': 'art', '阅读': 'read',
+  '休息': 'rest', '玩耍': 'play', '家务': 'family', '其他': 'other',
+};
+
+function openBatchModal() {
+  batchTab = 'text';
+  copySelectedDates = new Set();
+  document.getElementById('batchText').value = '';
+  document.getElementById('batchPreview').innerHTML = '';
+  document.getElementById('batchModal').classList.add('open');
+  switchBatchTab('text');
+  renderCopyCal();
+  // update source label
+  const [y,m,d] = selectedDateKey.split('-').map(Number);
+  const lbl = selectedDateKey === todayKey() ? '今天' : `${m}月${d}日`;
+  document.getElementById('copySourceLabel').textContent = lbl;
+}
+
+function closeBatchModal() {
+  document.getElementById('batchModal').classList.remove('open');
+}
+
+function switchBatchTab(tab) {
+  batchTab = tab;
+  document.getElementById('tabText').classList.toggle('active', tab === 'text');
+  document.getElementById('tabCopy').classList.toggle('active', tab === 'copy');
+  document.getElementById('panelText').classList.toggle('active', tab === 'text');
+  document.getElementById('panelCopy').classList.toggle('active', tab === 'copy');
+  document.getElementById('batchConfirmBtn').textContent = tab === 'text' ? '✅ 确认导入' : '📅 复制到选中日期';
+}
+
+// ---- Text parse ----
+function parseBatchLine(line) {
+  line = line.trim();
+  if (!line) return null;
+  // match: HH:MM-HH:MM name [cat] [Npoints]
+  const m = line.match(/^(\d{1,2}:\d{2})\s*[-~–]\s*(\d{1,2}:\d{2})\s+(.+)$/);
+  if (!m) return { err: `格式错误：「${line}」` };
+  let timeStart = m[1].padStart(5,'0');
+  let timeEnd   = m[2].padStart(5,'0');
+  if (timeStart.length === 4) timeStart = '0'+timeStart;
+  if (timeEnd.length === 4)   timeEnd   = '0'+timeEnd;
+  if (timeStart >= timeEnd) return { err: `时间有误：「${line}」（结束须晚于开始）` };
+  const rest = m[3].trim();
+  // parse points: ends with N分
+  let points = 10;
+  let restNoPts = rest.replace(/\s+(\d+)分$/, (_, n) => { points = parseInt(n); return ''; }).trim();
+  // parse category: last word matching cat name
+  let category = 'study';
+  let name = restNoPts;
+  const parts = restNoPts.split(/\s+/);
+  if (parts.length >= 2) {
+    const lastWord = parts[parts.length - 1];
+    if (CAT_NAME_MAP[lastWord]) {
+      category = CAT_NAME_MAP[lastWord];
+      name = parts.slice(0, -1).join(' ');
+    }
+  }
+  if (!name) return { err: `任务名为空：「${line}」` };
+  const cat = CATEGORIES.find(c => c.id === category);
+  return { ok: true, name, start: timeStart, end: timeEnd, category, icon: cat.icon, points, note: '' };
+}
+
+function parseBatchPreview() {
+  const lines = document.getElementById('batchText').value.split('\n').filter(l => l.trim());
+  const preview = document.getElementById('batchPreview');
+  if (!lines.length) { preview.innerHTML = ''; return; }
+  const results = lines.map(parseBatchLine);
+  preview.innerHTML = results.map(r => {
+    if (!r) return '';
+    if (r.err) return `<div class="preview-item err"><div class="preview-item-dot" style="background:#F43F5E"></div>${r.err}</div>`;
+    const cat = CATEGORIES.find(c => c.id === r.category);
+    return `<div class="preview-item ok"><div class="preview-item-dot" style="background:${cat.color}"></div>${cat.icon} ${r.start}–${r.end} <strong>${r.name}</strong> <span style="color:${cat.color}">${cat.name}</span> ⭐${r.points}</div>`;
+  }).join('');
+}
+
+// ---- Copy calendar ----
+function renderCopyCal() {
+  const year = copyCalMonth.getFullYear();
+  const month = copyCalMonth.getMonth();
+  document.getElementById('copyMonthLabel').textContent = `${year}年${month+1}月`;
+  const first = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const daysInPrev = new Date(year, month, 0).getDate();
+  let html = '';
+  for (let i = 0; i < first; i++) {
+    const d = daysInPrev - first + 1 + i;
+    const k = dateKey(new Date(year, month-1, d));
+    html += `<div class="copy-date-cell other-m">${d}</div>`;
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const k = dateKey(new Date(year, month, d));
+    const isSource = k === selectedDateKey;
+    const isSel = copySelectedDates.has(k);
+    const cls = isSource ? 'is-source' : (isSel ? 'selected-copy' : '');
+    html += `<div class="copy-date-cell ${cls}" onclick="${isSource ? '' : `toggleCopyDate('${k}')`}" title="${k}">${d}</div>`;
+  }
+  const rem = (7 - (first + daysInMonth) % 7) % 7;
+  for (let i = 1; i <= rem; i++) {
+    html += `<div class="copy-date-cell other-m">${i}</div>`;
+  }
+  document.getElementById('copyCalGrid').innerHTML = html;
+  updateCopyInfo();
+}
+
+function toggleCopyDate(key) {
+  if (copySelectedDates.has(key)) copySelectedDates.delete(key);
+  else copySelectedDates.add(key);
+  renderCopyCal();
+}
+
+function updateCopyInfo() {
+  const el = document.getElementById('copySelInfo');
+  if (copySelectedDates.size === 0) {
+    el.textContent = '请点击日期选择目标日期（可多选）';
+  } else {
+    const sorted = [...copySelectedDates].sort();
+    el.innerHTML = `已选 <strong style="color:var(--secondary)">${copySelectedDates.size}</strong> 个日期：${sorted.map(k => { const [,m,d]=k.split('-'); return `${parseInt(m)}/${parseInt(d)}`; }).join('、')}`;
+  }
+}
+
+function copyCal(dir) {
+  copyCalMonth.setMonth(copyCalMonth.getMonth() + dir);
+  renderCopyCal();
+}
+
+// ---- Confirm ----
+function confirmBatch() {
+  if (batchTab === 'text') {
+    confirmTextImport();
+  } else {
+    confirmCopyDates();
+  }
+}
+
+function confirmTextImport() {
+  const lines = document.getElementById('batchText').value.split('\n').filter(l => l.trim());
+  if (!lines.length) { alert('请先输入日程内容！'); return; }
+  const results = lines.map(parseBatchLine).filter(r => r && r.ok);
+  const errors = lines.map(parseBatchLine).filter(r => r && r.err);
+  if (results.length === 0) { alert('没有解析成功的任务，请检查格式！'); return; }
+  if (errors.length > 0) {
+    if (!confirm(`有 ${errors.length} 行格式错误将被跳过，是否继续导入 ${results.length} 条任务？`)) return;
+  }
+  if (!state.tasks[selectedDateKey]) state.tasks[selectedDateKey] = [];
+  results.forEach((r, i) => {
+    state.tasks[selectedDateKey].push({
+      id: (Date.now() + i).toString(),
+      name: r.name, start: r.start, end: r.end,
+      category: r.category, icon: r.icon, points: r.points,
+      note: r.note, done: false,
+    });
+  });
+  save();
+  closeBatchModal();
+  render();
+  showToast(`✅ 成功导入 ${results.length} 条日程！`);
+}
+
+function confirmCopyDates() {
+  if (copySelectedDates.size === 0) { alert('请先选择目标日期！'); return; }
+  const srcTasks = state.tasks[selectedDateKey] || [];
+  if (srcTasks.length === 0) { alert('当前日期没有日程可复制！'); return; }
+  const overwrite = document.getElementById('copyOverwrite').checked;
+  const resetDone = document.getElementById('copyResetDone').checked;
+  let copied = 0;
+  copySelectedDates.forEach(key => {
+    if (!state.tasks[key]) state.tasks[key] = [];
+    if (overwrite) state.tasks[key] = [];
+    srcTasks.forEach((t, i) => {
+      state.tasks[key].push({
+        ...t,
+        id: `${Date.now()}_${key}_${i}`,
+        done: resetDone ? false : t.done,
+      });
+    });
+    copied++;
+  });
+  save();
+  closeBatchModal();
+  render();
+  showToast(`📅 已将 ${srcTasks.length} 条日程复制到 ${copied} 天！`);
+}
+
+// ---- Toast ----
+function showToast(msg) {
+  let toast = document.getElementById('appToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'appToast';
+    toast.style.cssText = `
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+      background:#1E293B;color:white;padding:14px 28px;border-radius:50px;
+      font-weight:800;font-size:15px;z-index:9999;opacity:0;
+      transition:all 0.3s;pointer-events:none;white-space:nowrap;
+      box-shadow:0 8px 32px rgba(0,0,0,0.25);
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(20px)';
+  }, 2500);
+}
+
+// Close batch modal on overlay click
+document.getElementById('batchModal').addEventListener('click', function(e) {
+  if (e.target === this) closeBatchModal();
+});
+
+// ========== INIT ==========
+render();
+
+// ========== SUMMER SCHEDULE INIT ==========
+function initSummerSchedule() {
+  // Mon-Thu 任务模板
+  const weekdayTasks = [
+    { name: '早餐',            start: '07:30', end: '08:00', category: 'rest',   icon: '🍳', points: 5  },
+    { name: '玩乐-户外',       start: '08:00', end: '10:00', category: 'sport',  icon: '🌳', points: 15 },
+    { name: '语文-古诗、练字', start: '10:00', end: '10:40', category: 'study',  icon: '📝', points: 30 },
+    { name: '英语-新概念/瑞思',start: '11:00', end: '11:40', category: 'study',  icon: '📚', points: 30 },
+    { name: '午餐',            start: '12:00', end: '13:00', category: 'rest',   icon: '🍜', points: 5  },
+    { name: '数学',            start: '13:00', end: '13:40', category: 'study',  icon: '📐', points: 30 },
+    { name: '英语-牛津树',     start: '14:00', end: '14:40', category: 'study',  icon: '📖', points: 30 },
+    { name: '讲故事',          start: '15:00', end: '15:40', category: 'read',   icon: '💬', points: 30 },
+    { name: '玩乐-家',         start: '16:00', end: '17:00', category: 'play',   icon: '🎮', points: 5  },
+    { name: '晚餐',            start: '17:00', end: '18:00', category: 'rest',   icon: '🍜', points: 5  },
+    { name: '玩乐-户外',       start: '18:00', end: '20:00', category: 'sport',  icon: '🌳', points: 15 },
+    { name: '自己洗漱',        start: '20:00', end: '21:00', category: 'family', icon: '🛁', points: 20 },
+    { name: '阅读大冒险',      start: '21:00', end: '21:30', category: 'read',   icon: '📚', points: 30 },
+    { name: '不主动玩手机',    start: '23:00', end: '23:59', category: 'other',  icon: '📵', points: 25 },
+    { name: '帮姥姥做家务',    start: '23:00', end: '23:59', category: 'family', icon: '🏠', points: 25 },
+  ];
+
+  // 周五：讲故事 → 写周记
+  const fridayTasks = weekdayTasks.map(t =>
+    t.name === '讲故事' ? { ...t, name: '写周记', icon: '✏️' } : t
+  );
+
+  let count = 0;
+  for (let month = 6; month <= 8; month++) {
+    const daysInMonth = new Date(2026, month, 0).getDate();
+    for (let day = 1; day <= daysInMonth; day++) {
+      const d   = new Date(2026, month - 1, day);
+      const dow = d.getDay(); // 0=日,1=一…5=五,6=六
+      if (dow === 0 || dow === 6) continue; // 跳过周末
+      const key = `2026-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+      if (state.tasks[key] && state.tasks[key].length > 0) continue; // 已有数据不覆盖
+      const tpl = dow === 5 ? fridayTasks : weekdayTasks;
+      state.tasks[key] = tpl.map((t, i) => ({
+        ...t,
+        id: `${key}_${i}`,
+        done: false,
+        note: '',
+      }));
+      count++;
+    }
+  }
+
+  if (count > 0) {
+    save();
+    render();
+    console.log(`✅ 暑假日程初始化完成，共写入 ${count} 天`);
+  }
+}
+
+initSummerSchedule();
+
+</script>
+
+<!-- PWA: 注册 Service Worker -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('✅ SW 注册成功:', reg.scope))
+      .catch(err => console.log('❌ SW 注册失败:', err));
+  });
+}
+</script>
+</body>
+</html>

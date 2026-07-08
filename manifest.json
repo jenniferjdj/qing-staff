@@ -1,0 +1,26 @@
+{
+  "name": "我的暑假大计划",
+  "short_name": "暑假计划",
+  "description": "暑假日程管理 - 快乐学习，健康成长，每天进步",
+  "start_url": "./暑假日程管理.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F0F6FF",
+  "theme_color": "#1D4ED8",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity"]
+}
