@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>崇礼两日亲子游 · 行程单（2大1小 · 7岁男孩 · 轻松版·夏季）</title>
+<style>
+  :root{
+    --green:#2f8f5b;--green-light:#e8f5ec;
+    --blue:#3a7bd5;--blue-light:#eaf2fc;
+    --orange:#f0a04b;--orange-light:#fdf1e3;
+    --ink:#2b2f33;--gray:#6b7280;--line:#e4e8ec;--bg:#f7f9f8;--card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;padding:0 0 60px;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 18px;}
+  header{background:linear-gradient(135deg,#2f8f5b 0%,#3a7bd5 100%);color:#fff;
+    padding:42px 18px 34px;text-align:center;border-radius:0 0 28px 28px;}
+  header h1{font-size:26px;font-weight:800;letter-spacing:1px;}
+  header .sub{margin-top:10px;font-size:14px;opacity:.92;}
+  .tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+  .tags span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:5px 13px;border-radius:20px;font-size:13px;}
+  section{margin-top:30px;}
+  .sec-title{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;
+    color:var(--ink);margin-bottom:16px;}
+  .sec-title .dot{width:10px;height:24px;border-radius:6px;background:var(--green);}
+  .sec-title.blue .dot{background:var(--blue);}
+  .sec-title.orange .dot{background:var(--orange);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.03);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;}
+  .mini h4{font-size:15px;margin-bottom:6px;color:var(--green);}
+  .mini p,.mini li{font-size:13.5px;color:var(--gray);}
+  .mini ul{padding-left:18px;}
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;
+    background:linear-gradient(var(--green),var(--blue));border-radius:3px;}
+  .node{position:relative;margin-bottom:20px;}
+  .node::before{content:"";position:absolute;left:-22px;top:5px;width:14px;height:14px;
+    border-radius:50%;background:#fff;border:3px solid var(--green);}
+  .node.blue::before{border-color:var(--blue);}
+  .node.orange::before{border-color:var(--orange);}
+  .node .time{font-size:13px;color:var(--blue);font-weight:700;}
+  .node .what{font-size:16px;font-weight:700;margin:2px 0 4px;}
+  .node .desc{font-size:13.5px;color:var(--gray);}
+  .node .kid{display:inline-block;margin-top:7px;background:var(--orange-light);color:#b7621b;
+    font-size:12.5px;padding:4px 10px;border-radius:8px;font-weight:600;}
+  .node .cost{display:inline-block;margin-top:7px;background:var(--green-light);color:var(--green);
+    font-size:12.5px;padding:4px 10px;border-radius:8px;font-weight:600;margin-left:6px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--green-light);color:var(--green);font-weight:700;}
+  tr:nth-child(even) td{background:#fbfdfc;}
+  .tip{background:var(--blue-light);border-left:4px solid var(--blue);
+    padding:12px 16px;border-radius:0 12px 12px 0;font-size:13.5px;color:#33526f;margin-bottom:12px;}
+  .tip b{color:var(--blue);}
+  .food-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:640px){.food-grid{grid-template-columns:1fr;}}
+  .food{background:var(--orange-light);border-radius:12px;padding:12px 14px;}
+  .food h4{color:#b7621b;font-size:14.5px;margin-bottom:3px;}
+  .food p{font-size:13px;color:#7a5326;}
+  .footer{text-align:center;font-size:12.5px;color:var(--gray);margin-top:34px;
+    border-top:1px dashed var(--line);padding-top:18px;}
+  .hl{color:var(--green);font-weight:700;}
+  .star{color:var(--orange);font-weight:700;}
+  .best{background:linear-gradient(90deg,#e8f5ec,#f0faf3);border:1.5px solid var(--green);}
+  .badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;
+    padding:2px 8px;border-radius:6px;font-weight:700;margin-left:6px;vertical-align:middle;}
+  .map-wrap{background:#eef4ef;border-radius:16px;padding:10px;text-align:center;}
+  .map-wrap svg{max-width:100%;height:auto;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:10px;font-size:12.5px;color:var(--gray);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:12px;height:12px;border-radius:50%;display:inline-block;}
+</section>
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏔️ 崇礼两日亲子游 · 行程单</h1>
+  <div class="sub">2 位大人 + 1 个 7 岁男孩 · 轻松不赶 · 夏季避暑版 · 吃住玩全安排</div>
+  <div class="tags">
+    <span>🌞 夏季均温 18–25℃</span>
+    <span>🚄 北京高铁约 1 小时</span>
+    <span>🏨 4 星+ 亲子酒店对比</span>
+    <span>📍 含小镇位置地图</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 行前须知 -->
+  <section>
+    <div class="sec-title"><span class="dot"></span>出发前，先知道这几件事</div>
+    <div class="grid2">
+      <div class="mini">
+        <h4>🗓 季节 & 穿着</h4>
+        <ul>
+          <li>本方案按<b>夏季（6–8月）</b>设计，避暑首选，均温 18–25℃。</li>
+          <li>山顶（2160米）比镇上低 8–10℃，备薄外套 / 皮肤衣。</li>
+          <li>防晒霜、墨镜、帽子必备，紫外线强。</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>🚆 怎么去（推荐高铁）</h4>
+        <ul>
+          <li><b>高铁</b>：清河 / 北京北 → 太子城站约 1 小时 10 分，出站免费接驳车直达太舞小镇。</li>
+          <li><b>自驾</b>：京礼高速约 2.5–3.5 小时，带娃每 1 小时进服务区休息。</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>🎒 带娃行李</h4>
+        <ul>
+          <li>防晒、外套、舒适运动鞋、替换衣物</li>
+          <li>零食、水壶、常备药、防蚊液</li>
+          <li>绘本 / 平板（高铁 & 车上用）</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>⚠️ 节奏说明</h4>
+        <ul>
+          <li>每天只排 2–3 个主活动，留足发呆时间。</li>
+          <li>崇礼海拔 1200–2160 米，一般无高反，别让孩子猛跑。</li>
+          <li>小镇餐饮偏贵，可自备零食水果省一笔。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 地图 -->
+  <section>
+    <div class="sec-title blue"><span class="dot"></span>小镇分布地图（崇礼区 · 示意方位）</div>
+    <div class="card">
+      <div class="map-wrap">
+        <svg viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="崇礼各小镇位置示意地图（含距离标注）">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f3f8f4"/><stop offset="1" stop-color="#e7f0ea"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="680" height="470" fill="url(#bg)"/>
+          <!-- 装饰山形 -->
+          <path d="M0 360 L80 300 L150 350 L240 290 L330 345 L430 285 L540 340 L680 300 L680 470 L0 470 Z" fill="#dce9e0" opacity="0.7"/>
+          <path d="M0 400 L120 350 L250 395 L380 345 L520 395 L680 355 L680 470 L0 470 Z" fill="#cfe0d5" opacity="0.6"/>
+          <!-- 指北针 -->
+          <g transform="translate(636,40)">
+            <circle r="20" fill="#fff" stroke="#c9d6cd" stroke-width="1.5"/>
+            <path d="M0 -13 L5 4 L0 0 L-5 4 Z" fill="#e2554f"/>
+            <text x="0" y="-22" text-anchor="middle" font-size="12" font-weight="700" fill="#555">N</text>
+          </g>
+          <!-- 道路（虚线，以崇礼城区为中心） -->
+          <g stroke="#b9c4bd" stroke-width="2" stroke-dasharray="6 5" fill="none">
+            <path d="M330 250 L432 112"/>           <!-- 城区->翠云山 -->
+            <path d="M330 250 L200 250 L120 236 L112 322"/> <!-- 城区->富龙->万龙->阿那亚 -->
+            <path d="M330 250 L452 320 L524 372"/>  <!-- 城区->太舞->太子城 -->
+            <path d="M330 250 L612 412"/>           <!-- 城区->张家口 -->
+          </g>
+          <!-- 点：住宿小镇 绿 -->
+          <g font-family="PingFang SC,Microsoft YaHei,sans-serif">
+            <!-- 太舞 -->
+            <circle cx="452" cy="320" r="9" fill="#2f8f5b" stroke="#fff" stroke-width="2.5"/>
+            <text x="452" y="345" text-anchor="middle" font-size="13" font-weight="700" fill="#1f5e3c">太舞小镇</text>
+            <!-- 云顶/太子城/雪如意 -->
+            <circle cx="524" cy="372" r="9" fill="#2f8f5b" stroke="#fff" stroke-width="2.5"/>
+            <text x="524" y="397" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f5e3c">云顶·太子城</text>
+            <text x="524" y="412" text-anchor="middle" font-size="11" fill="#3a7bd5">雪如意·遗址(免费)</text>
+            <!-- 富龙 -->
+            <circle cx="200" cy="250" r="9" fill="#2f8f5b" stroke="#fff" stroke-width="2.5"/>
+            <text x="200" y="234" text-anchor="middle" font-size="13" font-weight="700" fill="#1f5e3c">富龙四季</text>
+            <!-- 万龙 -->
+            <circle cx="120" cy="236" r="8" fill="#2f8f5b" stroke="#fff" stroke-width="2.5"/>
+            <text x="120" y="220" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f5e3c">万龙</text>
+            <!-- 阿那亚崇礼 -->
+            <circle cx="112" cy="322" r="9" fill="#2f8f5b" stroke="#fff" stroke-width="2.5"/>
+            <text x="112" y="346" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f5e3c">阿那亚崇礼</text>
+            <!-- 翠云山 -->
+            <circle cx="432" cy="112" r="9" fill="#2f8f5b" stroke="#fff" stroke-width="2.5"/>
+            <text x="432" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#1f5e3c">翠云山</text>
+            <!-- 崇礼城区 -->
+            <circle cx="330" cy="250" r="7" fill="#555" stroke="#fff" stroke-width="2"/>
+            <text x="330" y="272" text-anchor="middle" font-size="12" font-weight="700" fill="#444">崇礼城区</text>
+            <!-- 张家口 灰 -->
+            <circle cx="612" cy="412" r="7" fill="#9aa3a0" stroke="#fff" stroke-width="2"/>
+            <text x="612" y="434" text-anchor="middle" font-size="11.5" fill="#777">张家口(参照)</text>
+          </g>
+          <!-- 距离标注（公路距离 / 车程约 估算） -->
+          <g font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600"
+             fill="#3f5a48" stroke="#eef4ef" stroke-width="3" paint-order="stroke" text-anchor="middle">
+            <text x="398" y="291">25km·约35′</text>
+            <text x="261" y="240">8km·约15′</text>
+            <text x="160" y="229">5km·约10′</text>
+            <text x="58" y="280">10km·约15′</text>
+            <text x="386" y="178">18km·约25′</text>
+            <text x="492" y="347">5km·约10′</text>
+            <text x="503" y="350">60km·约1h</text>
+          </g>
+        </svg>
+      </div>
+      <div class="legend">
+        <span><i style="background:#2f8f5b"></i>住宿小镇</span>
+        <span><i style="background:#3a7bd5"></i>免费打卡点（雪如意/遗址）</span>
+        <span><i style="background:#555"></i>崇礼城区</span>
+      </div>
+      <div class="tip">🗺 <b>怎么理解这张图</b>：崇礼的度假小镇分成两大片区——<b>东南片区</b>（太子城高铁站旁）：太舞、云顶、雪如意、太子城遗址彼此相距很近，5–10 分钟车程，本行程 Day1 就在这；<b>西南片区</b>（沿万龙路）：富龙、万龙、阿那亚崇礼相邻；<b>东北</b>是翠云山。图上已标注小镇间的公路距离与车程约（估算）；示意图非精确比例。</div>
+    </div>
+  </section>
+
+  <!-- 住宿对比 -->
+  <section>
+    <div class="sec-title blue"><span class="dot"></span>住哪里（4 星以上 · 亲子友好 · 多小镇对比）</div>
+    <div class="card">
+      <table style="font-size:12px">
+        <tr>
+          <th>所在小镇</th><th>酒店（星级）</th><th>开业 / 装修</th>
+          <th>亲子设施（泳池·浴缸·乐园·游乐）</th><th>停车</th>
+          <th>夏季参考价/晚</th><th>适合度</th>
+        </tr>
+        <tr class="best">
+          <td><b>太舞小镇</b><br>（本行程住这）</td>
+          <td>太舞威斯汀·<b>源宿</b><br><span class="star">★★★★</span></td>
+          <td>2017 / 2017</td>
+          <td>室内泳池✓ · 温泉泡池 · 小镇儿童乐园(滑步车) · 部分套房浴缸</td>
+          <td>地下免费(直通大堂)</td>
+          <td>约 600–900 元</td>
+          <td><span class="badge">首选</span></td>
+        </tr>
+        <tr class="best">
+          <td><b>太舞小镇</b></td>
+          <td>太舞·<b>宾丽雅</b>酒店<br><span class="star">豪华★★★★★</span></td>
+          <td>2025（新）</td>
+          <td>室内泳池✓ · 温泉泡汤✓ · 儿童游戏区✓ · 迈克狐亲子房</td>
+          <td>私人免费(车位有限)</td>
+          <td>约 800–1100 元</td>
+          <td>高档之选</td>
+        </tr>
+        <tr>
+          <td>太舞小镇</td>
+          <td>太舞·<b>凯悦嘉轩</b><br><span class="star">★★★★</span></td>
+          <td>2018</td>
+          <td>室内恒温泳池✓(含儿童池) · 儿童浴袍/拖鞋/书籍</td>
+          <td>公共免费(100位)</td>
+          <td>约 500–750 元</td>
+          <td>性价比</td>
+        </tr>
+        <tr class="best">
+          <td><b>富龙四季小镇</b></td>
+          <td>富龙·<b>容辰华邑</b><br><span class="star">★★★★★（洲际旗下）</span></td>
+          <td>富龙小镇2017起<br>（以预订页为准）</td>
+          <td>室内泳池✓ · 高端卫浴 · 亲子主题房 · 小镇配套全</td>
+          <td>小镇免费停车场</td>
+          <td>约 750–1100 元</td>
+          <td><span class="badge">想换高档</span></td>
+        </tr>
+        <tr>
+          <td>富龙四季小镇</td>
+          <td>富龙·<b>假日</b>度假酒店<br><span class="star">★★★★</span></td>
+          <td>2018</td>
+          <td>亲子房(高低床)✓ · 儿童活动区/托管✓ · 小镇山顶泳池</td>
+          <td>小镇免费停车场</td>
+          <td>约 500–750 元</td>
+          <td>亲子稳选</td>
+        </tr>
+        <tr>
+          <td>富龙四季小镇</td>
+          <td>富龙·风铃乐谷焕活酒店<br><span class="star">★★★★</span></td>
+          <td>2021</td>
+          <td>紧邻白熊乐园(3000㎡)✓ · 儿童游戏区 · 超级飞侠主题房</td>
+          <td>免费停车场</td>
+          <td>约 500–700 元</td>
+          <td>主题亲子</td>
+        </tr>
+        <tr class="best">
+          <td><b>阿那亚崇礼</b><br>（拾雪川）</td>
+          <td>阿那亚崇礼·<b>隐庐</b>酒店<br><span class="star">高档（2024新开）</span></td>
+          <td>2024（新）</td>
+          <td>客房独立泡池✓ · 50m室外泳池✓ · 社区儿童活动中心</td>
+          <td>社区停车场(自驾报备车牌)</td>
+          <td>约 800–1200 元</td>
+          <td><span class="badge">文艺亲子</span></td>
+        </tr>
+        <tr>
+          <td>阿那亚崇礼<br>（拾雪川）</td>
+          <td>万怡酒店（<b>Courtyard</b>）<br><span class="star">★★★★（万豪旗下）</span></td>
+          <td>2024</td>
+          <td>室内恒温泳池✓(儿童池) · 儿童俱乐部✓ · 卡通主题房</td>
+          <td>地下免费(200位)</td>
+          <td>约 600–900 元</td>
+          <td>亲子稳选</td>
+        </tr>
+        <tr class="best">
+          <td><b>翠云山</b></td>
+          <td>翠云山·<b>皇冠假日</b><br><span class="star">★★★★☆（洲际旗下）</span></td>
+          <td>2021 / 2021</td>
+          <td>浴缸✓ · 亲子主题房✓ · 观景阳台 · 儿童玩具/浴袍</td>
+          <td>免费(170位)</td>
+          <td>约 600–900 元</td>
+          <td>静谧高档</td>
+        </tr>
+        <tr>
+          <td>翠云山</td>
+          <td>云瑧·<b>金陵翠云山</b><br><span class="star">★★★★☆</span></td>
+          <td>2020</td>
+          <td>恒温泳池✓ · 温泉✓ · 浴缸(部分) · 儿童用品</td>
+          <td>免费停车场</td>
+          <td>约 600–900 元</td>
+          <td>带娃好评</td>
+        </tr>
+        <tr>
+          <td>密苑·云顶</td>
+          <td>密苑·<b>云顶乐园</b>酒店<br><span class="star">★★★★</span></td>
+          <td>2012</td>
+          <td>亲子主题房(绿豆蛙/大嘴猴)✓ · 浴缸 · SPA/泳池 · 雪具大厅</td>
+          <td>免费停车场(充电位)</td>
+          <td>约 600–900 元</td>
+          <td>冬奥主题</td>
+        </tr>
+      </table>
+      <div class="tip">💡 表中「开业/装修」为公开资料整理，预订前请以各平台实时信息核对；「亲子设施」栏 ✓ 表示酒店自有或小镇共享该设施。带娃家庭重点看三件事：<b>有无恒温泳池</b>（玩累泡一泡）、<b>有无亲子/主题房与儿童乐园</b>（放电省妈）、<b>停车是否免费便捷</b>（自驾党刚需）。本行程住太舞，首选威斯汀源宿（2017、有泳池+小镇乐园），想更高档选 2025 新开的宾丽雅。</div>
+      <div class="tip">💡 <b>订房建议</b>：① 本行程 Day1 玩太舞缆车+萌宠，<b>住太舞最顺</b>，首选威斯汀源宿，想更高档选宾丽雅；② 若想换个更安静高档的小镇，<b>富龙容辰华邑</b>或<b>翠云山皇冠假日</b>是 5 星级之选；③ <b>阿那亚崇礼</b>适合想要文艺松弛感的亲子家庭（隐庐带泡汤，男娃也会觉得雪人国小镇新奇）；④ 搜「住宿+缆车套票」常能压到人均 300+。暑期周末价格上浮，提前 1–2 周订。</div>
+    </div>
+  </section>
+
+  <!-- 三大小镇玩什么 -->
+  <section>
+    <div class="sec-title orange"><span class="dot"></span>三大小镇分别玩什么 · 大概需要多久</div>
+    <div class="tip">🧭 下面的「建议时长」按<b>亲子轻松节奏</b>估算（含休息、拍照、排队，不是走马观花的最短时间）。三个小镇彼此车程 10–25 分钟，可任选一两个作为半日 / 一日据点；本行程 Day1 以<b>太舞</b>为据点。</div>
+
+    <!-- 太舞 -->
+    <div class="card" style="border-left:5px solid var(--green);">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div style="font-size:18px;font-weight:800;color:var(--green);">🎿 太舞小镇 <span style="font-size:12px;font-weight:600;color:var(--gray);">· 冬奥风情 + 山地乐园（本行程据点）</span></div>
+        <span style="background:var(--green-light);color:var(--green);font-weight:700;font-size:13px;padding:5px 12px;border-radius:20px;">建议 1 个完整白天（约 6–8 小时）</span>
+      </div>
+      <ul style="margin-top:10px;padding-left:20px;font-size:13.5px;color:var(--gray);line-height:1.95;">
+        <li><b>观光缆车 + 2160 草甸</b>：登海拔 2160 米高山草甸，野花、风车、云海；含缆车上下 + 平缓漫步（约 2–2.5 小时）</li>
+        <li><b>萌宠乐园</b>：喂羊驼 / 小羊 / 小马，7 岁男娃最爱（约 40–60 分钟，免费）</li>
+        <li><b>无动力儿童乐园</b>：滑梯、平衡车赛道、攀爬（约 1 小时，免费）</li>
+        <li><b>Luge 山地滑行</b>：自己掌控滑道，男娃尖叫释放（约 1 小时，含排队；¥150）</li>
+        <li><b>嗨森大马戏</b>：双人套票超值（约 1–1.5 小时；双人 ¥158）</li>
+        <li><b>小镇夜游 / 北美风情街</b>：乐队、篝火、散步消食（约 1 小时，晚上）</li>
+      </ul>
+      <span class="kid">🧒 亲子亮点：缆车看云海 + 喂小动物 + 自己开 Luge</span>
+    </div>
+
+    <!-- 阿那亚崇礼 -->
+    <div class="card" style="border-left:5px solid var(--blue);">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div style="font-size:18px;font-weight:800;color:var(--blue);">🏘️ 阿那亚崇礼（拾雪川） <span style="font-size:12px;font-weight:600;color:var(--gray);">· 文艺松弛社区（雪人国小镇）</span></div>
+        <span style="background:var(--blue-light);color:var(--blue);font-weight:700;font-size:13px;padding:5px 12px;border-radius:20px;">建议 半日–1 日（约 3–5 小时）</span>
+      </div>
+      <ul style="margin-top:10px;padding-left:20px;font-size:13.5px;color:var(--gray);line-height:1.95;">
+        <li><b>雪人国小镇</b>：童话灯光小镇、雪人装置打卡，男娃也觉得新奇（约 1 小时，免费逛）</li>
+        <li><b>理想国书店 + MANNER 咖啡</b>：落地窗看书喝咖啡，亲子歇脚（约 40 分钟）</li>
+        <li><b>山谷市集 + 宿咕面包</b>：买零食、文创、面包（约 30 分钟）</li>
+        <li><b>第一食堂 + 各色餐厅</b>：麻辣烫 / 烤羊排 / 火锅 / 蒸饺（用餐约 1 小时）</li>
+        <li><b>山谷汤泉</b>：泡汤 + 汗蒸，玩累解乏（约 1–1.5 小时，需预约）</li>
+        <li><b>儿童乐园 / 户外无动力装置</b>：超大滑梯、爬爬架（约 1 小时，夏季室内外皆有）</li>
+        <li><b>拾雪川滑雪场</b>：冬季滑雪 / 娱雪；夏季以山地项目为主（冬季另计，平日约 ¥350/天，1.5m 以下儿童免费）</li>
+      </ul>
+      <span class="kid">🧒 亲子亮点：雪人国灯光小镇 + 山谷汤泉泡汤 + 户外大滑梯</span>
+    </div>
+
+    <!-- 翠云山 -->
+    <div class="card" style="border-left:5px solid var(--orange);">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <div style="font-size:18px;font-weight:800;color:#b7621b;">🌲 翠云山 <span style="font-size:12px;font-weight:600;color:var(--gray);">· 森林氧吧 + 山地运动（崇礼小瑞士）</span></div>
+        <span style="background:var(--orange-light);color:#b7621b;font-weight:700;font-size:13px;padding:5px 12px;border-radius:20px;">建议 半日–1 日（约 4–5 小时）</span>
+      </div>
+      <ul style="margin-top:10px;padding-left:20px;font-size:13.5px;color:var(--gray);line-height:1.95;">
+        <li><b>森林风景区徒步</b>：森林覆盖率 85%+，白桦林小道、明长城遗址，木板 / 石板路平缓（约 2–2.5 小时，门票约 ¥30–69）</li>
+        <li><b>观光缆车登顶 + 星芒图书馆</b>：落差 316 米俯瞰崇礼全景，山顶莲花造型图书馆地标（约 1 小时，缆车 ¥50/人）</li>
+        <li><b>亲子无动力乐园</b>：高空攀爬 / 蹦床 / 儿童闯关等 17 项，适合 3–12 岁（约 1 小时，3 人套票约 ¥150）</li>
+        <li><b>彩虹滑道 + 山地滑车（Luge）</b>：山顶风驰电掣（约 40 分钟，含排队）</li>
+        <li><b>星斗水上乐园</b>：5 万㎡湖面，电动船 / 水上自行车（夏季，约 1 小时，项目 ¥38–98）</li>
+        <li><b>汽摩运动公园</b>：儿童卡丁车 / UTV（约 40 分钟，儿童 ¥50 起）</li>
+      </ul>
+      <span class="kid">🧒 亲子亮点：森林徒步 + 山顶图书馆 + 无动力乐园爬爬架</span>
+    </div>
+  </section>
+
+  <!-- Day 1 -->
+  <section>
+    <div class="sec-title"><span class="dot"></span>第一天 · 太舞小镇 × 冬奥草甸（完整一日）</div>
+    <div class="card">
+      <div class="timeline">
+        <div class="node">
+          <div class="time">09:00 – 09:30</div>
+          <div class="what">酒店早餐</div>
+          <div class="desc">吃饱再出发，山区上午凉，给孩子加件薄外套。高档酒店早餐更丰富，男娃爱吃啥拿啥。</div>
+          <span class="cost">多含在房费</span>
+        </div>
+        <div class="node">
+          <div class="time">09:30 – 12:00</div>
+          <div class="what">缆车登顶 · 2160 草甸</div>
+          <div class="desc">坐观光缆车（成人往返约 100 元，儿童有优惠）到海拔 2160 米玉石梁。夏季是高山草甸、野花和风车群，云海超治愈。平缓步道带娃走一小段即可，不勉强登顶。</div>
+          <span class="kid">🧒 娃亮点：缆车里喊「云在脚下！」</span>
+          <span class="cost">约 200–260 元（2大1小）</span>
+        </div>
+        <div class="node orange">
+          <div class="time">12:00 – 13:30</div>
+          <div class="what">午餐：坝上莜面 + 手把肉</div>
+          <div class="desc">小镇里挑一家北方菜馆，点莜面窝窝、铁锅焖面、坝上羊肉，孩子吃莜面鱼鱼配番茄汤最合适。想省钱可先吃自带水果垫底。</div>
+          <span class="cost">约 150–220 元</span>
+        </div>
+        <div class="node blue">
+          <div class="time">14:00 – 16:00</div>
+          <div class="what">萌宠乐园 + 无动力儿童乐园</div>
+          <div class="desc">回镇上逛萌宠乐园，喂羊驼、小羊、小马（7 岁男孩最爱）；再到无动力儿童乐园玩滑梯、平衡车赛道，平缓不累。</div>
+          <span class="kid">🧒 娃亮点：喂小动物 + 草地滑步车</span>
+        </div>
+        <div class="node orange">
+          <div class="time">16:00 – 17:30</div>
+          <div class="what">Luge 山地滑行 + 嗨森大马戏</div>
+          <div class="desc">Luge 山地滑行（男娃最爱，自己掌控滑道）；体力够再加一场嗨森大马戏（双人套票超值）。不赶场，挑娃最有兴趣的来。</div>
+          <span class="kid">🧒 娃亮点：自己开 Luge 滑道、看马戏</span>
+          <span class="cost">约 150–300 元</span>
+        </div>
+        <div class="node orange">
+          <div class="time">18:00 – 19:30</div>
+          <div class="what">晚餐：小镇家庭餐</div>
+          <div class="desc">小镇火锅或家庭式餐厅，大人涮肉、娃吃清汤菜，省心不踩雷。饭后沿北美风情街散步消食。</div>
+          <span class="cost">约 180–260 元</span>
+        </div>
+        <div class="node">
+          <div class="time">19:30 – 21:00</div>
+          <div class="what">小镇夜游 / 酒店泳池放松</div>
+          <div class="desc">夏天晚上小镇常有乐队 / 篝火，带娃逛逛风情街；住高档酒店可顺便泡个泳池 / 温泉，解乏助眠。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day 2 -->
+  <section>
+    <div class="sec-title blue"><span class="dot"></span>第二天 · 冬奥地标 × 邻镇撒欢（完整一日）</div>
+    <div class="card">
+      <div class="timeline">
+        <div class="node">
+          <div class="time">09:00 – 09:30</div>
+          <div class="what">酒店早餐</div>
+          <div class="desc">吃饱再出发。今天跨区域，给孩子加件薄外套，备好水壶零食放车上。</div>
+          <span class="cost">多含在房费</span>
+        </div>
+        <div class="node blue">
+          <div class="time">09:30 – 12:00</div>
+          <div class="what">太子城遗址 + 雪如意外观</div>
+          <div class="desc">先逛<b>太子城金代行宫遗址公园</b>（免费，辽金考古，孩子可触摸千年行宫文脉）；再到<b>国家跳台滑雪中心「雪如意」</b>外观打卡拍照——冬奥标志性建筑，远远看「如意」造型就很震撼。</div>
+          <span class="kid">🧒 娃亮点：看真实冬奥场馆，像课本里走出来</span>
+          <span class="cost">遗址免费 · 雪如意外观免费</span>
+        </div>
+        <div class="node orange">
+          <div class="time">12:00 – 13:30</div>
+          <div class="what">午餐：草原农家院手把肉</div>
+          <div class="desc">周边农家院点手把肉、莜面、贴饼子、柴火炖鱼，配一碗坝上奶茶。7 岁男孩多半爱吃手把肉蘸盐。</div>
+          <span class="cost">约 160–220 元</span>
+        </div>
+        <div class="node">
+          <div class="time">14:00 – 16:30</div>
+          <div class="what">富龙四季小镇 · 无动力乐园 + 水世界</div>
+          <div class="desc">包车 / 自驾约 15 分钟到富龙。白天玩无动力乐园放电，夏天可加山顶无边泳池 / 水世界项目（约 100–150 元），男娃玩水最疯。※ 想更贴近自然，可改去<b>翠云山森林徒步</b>。</div>
+          <span class="kid">🧒 娃亮点：玩水 + 白熊乐园撒欢</span>
+          <span class="cost">乐园部分免费 · 水世界约 100–150 元</span>
+        </div>
+        <div class="node orange">
+          <div class="time">17:00 – 18:30</div>
+          <div class="what">晚餐（富龙或回太舞）</div>
+          <div class="desc">富龙小镇或回太舞都方便，挑一家北方菜馆，大人涮肉、娃吃清汤，省心。</div>
+          <span class="cost">约 180–260 元</span>
+        </div>
+        <div class="node">
+          <div class="time">19:00 – 20:30</div>
+          <div class="what">夜游 / 文艺社区（可选阿那亚崇礼）</div>
+          <div class="desc">回太舞夜游风情街、泡泳池放松；体力好可顺路去<b>阿那亚崇礼</b>（富龙→阿那亚约 10 分钟）逛文艺社区、食堂与建筑，男娃也会觉得雪人国小镇新奇。</div>
+        </div>
+      </div>
+      <div class="tip">📌 <b>想换个花样？</b>第二天可整体替换成「翠云山一日」：上午太子城+雪如意，下午翠云山森林徒步 + 酒店泳池，更躺平；或把晚上的阿那亚崇礼换成富龙音乐喷泉夜景（19:30–21:00 激光秀）。各小镇车程 10–25 分钟，不赶。</div>
+    </div>
+  </section>
+
+  <!-- 门票一览 -->
+  <section>
+    <div class="sec-title orange"><span class="dot"></span>周边小镇 / 景点 门票一览（夏季）</div>
+    <div class="card">
+      <table>
+        <tr>
+          <th>小镇 / 景点</th>
+          <th>进镇 / 进景区大门</th>
+          <th>夏季亲子玩乐项目（参考价）</th>
+          <th>亲子适合度</th>
+        </tr>
+        <tr>
+          <td><b>太舞小镇</b></td>
+          <td><span class="hl">免费进镇</span></td>
+          <td>缆车观光 ¥100/成人往返（儿童优惠）· 萌宠乐园免费 · 儿童乐园免费 · Luge 山地滑行 ¥150 · 嗨森大马戏双人 ¥158 · 小驴乐园托管 ¥570–630</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td><b>富龙四季小镇</b></td>
+          <td><span class="hl">免费进镇</span></td>
+          <td>无动力乐园部分免费 · 山地/水世界项目约 ¥100–150 · 亲子主题房</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td><b>阿那亚崇礼</b>（拾雪川）</td>
+          <td><span class="hl">免费进社区</span></td>
+          <td>夏季以小镇漫步、市集、建筑打卡、食堂为主；滑雪/山地项目另计（冬季滑雪平日约 ¥350/天，1.5m 以下儿童免费）</td>
+          <td>★★★★（文艺松弛）</td>
+        </tr>
+        <tr>
+          <td><b>密苑·云顶乐园</b></td>
+          <td><span class="hl">免费进镇</span>（夏季观光另询）</td>
+          <td>夏季以缆车观光为主，现场询价；冬季滑雪 ¥410 起</td>
+          <td>★★★★</td>
+        </tr>
+        <tr>
+          <td><b>翠云山旅游度假区</b></td>
+          <td>景区门票约 <b>¥30–69</b></td>
+          <td>森林徒步、缆车观光（另计）；银河滑雪场冬季 ¥350 起</td>
+          <td>★★★★</td>
+        </tr>
+        <tr>
+          <td><b>太子城遗址公园</b></td>
+          <td><span class="hl">免费</span></td>
+          <td>辽金考古研学，触摸遗址免费</td>
+          <td>★★★★</td>
+        </tr>
+        <tr>
+          <td><b>雪如意 / 奥林匹克公园</b></td>
+          <td>外观 <span class="hl">免费</span> · 进馆参观约 <b>¥80</b></td>
+          <td>看冬奥场馆、研学讲解</td>
+          <td>★★★★</td>
+        </tr>
+      </table>
+      <div class="tip">🎟 <b>一句话总结</b>：崇礼几个主要度假小镇（太舞 / 富龙 / 云顶 / 阿那亚崇礼）<span class="hl">进镇都不收门票</span>，花钱主要在缆车观光、乐园项目、演出上；太子城遗址、雪如意外观也都免费。建议把缆车套票订进房费里最划算。</div>
+    </div>
+  </section>
+
+  <!-- 吃什么 -->
+  <section>
+    <div class="sec-title orange"><span class="dot"></span>崇礼必吃（给孩子点的那几样）</div>
+    <div class="food-grid">
+      <div class="food"><h4>🍜 莜面窝窝 / 莜面鱼鱼</h4><p>坝上主食，劲道健康，配番茄 / 羊肉汤，7 岁孩子好消化。</p></div>
+      <div class="food"><h4>🐑 手把肉 / 坝上羊肉</h4><p>草原散养羊，蘸盐吃原味，男娃多半爱，补一补爬山消耗。</p></div>
+      <div class="food"><h4>🍄 口蘑炖鸡</h4><p>坝上野生口蘑鲜甜，汤鲜肉嫩，孩子老人都合适。</p></div>
+      <div class="food"><h4>🥔 铁锅焖面 / 柴火炖鱼</h4><p>农家院招牌，一锅出，贴饼子蘸汤，管饱又香。</p></div>
+      <div class="food"><h4>🥛 坝上奶茶</h4><p>咸口砖茶奶茶，暖胃，配肉解腻（孩子可少喝）。</p></div>
+      <div class="food"><h4>🍢 烤羊肉串 / 柴沟堡熏肉</h4><p>夜宵小吃，逛街随手买，娃当零嘴。</p></div>
+    </div>
+  </section>
+
+  <!-- 预算 -->
+  <section>
+    <div class="sec-title blue"><span class="dot"></span>预算参考（2 大 1 小，夏季周末 2 天 1 晚 · 住 4 星+）</div>
+    <div class="card">
+      <table>
+        <tr><th>项目</th><th>明细</th><th>估算</th></tr>
+        <tr><td>交通</td><td>高铁往返 3 人（或油费+过路费）</td><td>约 600–900 元</td></tr>
+        <tr><td>住宿</td><td>1 晚 4 星+ 亲子酒店（源宿/宾丽雅/华邑/隐庐等，含早）</td><td>约 600–1200 元</td></tr>
+        <tr><td>门票 / 缆车</td><td>缆车往返 + 乐园（儿童多优惠；进镇免费）</td><td>约 350–500 元</td></tr>
+        <tr><td>餐饮</td><td>2 午 2 晚 1 早 + 零食</td><td>约 600–800 元</td></tr>
+        <tr><td><b>合计</b></td><td><b>轻松版人均约 700–1100 元</b></td><td><b>约 2150–3400 元</b></td></tr>
+      </table>
+      <div class="tip">💡 想再省：① 订「住宿含缆车」套餐；② 自带水果零食；③ 午餐选农家院而非景区餐厅；④ 自驾分摊油费更灵活。想更舒服：住宾丽雅/华邑/隐庐等高档酒店，预算上探到 4000+ 也值得。</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    行程已按「2 大 1 小 · 7 岁男孩 · 轻松不赶 · 夏季」定制 · 两天均为完整游玩日，时间节点可按家庭作息整体平移<br>
+    祝你家三口在崇礼的 18℃ 夏天玩得尽兴 🌿
+  </div>
+
+</div>
+</body>
+</html>
